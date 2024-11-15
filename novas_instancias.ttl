@@ -1,1906 +1,1905 @@
-@prefix : <http://example.com#> .
+@prefix websem: <https://raw.githubusercontent.com/dmouraomartins/public/refs/heads/main/novas_instancias.ttl> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix gufo: <https://nemo-ufes.github.io/gufo/gufo.ttl> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.com> rdf:type owl:Ontology;
     owl:imports gufo:.
-:Attack rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+websem:Attack rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
     rdfs:subClassOf gufo:Event;
     rdfs:label "Attack"@en.
-:Incident rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+websem:Incident rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
     rdfs:subClassOf gufo:Event;
     rdfs:label "Incident"@en.
-:Damage rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+websem:Damage rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
     rdfs:subClassOf gufo:Situation;
     rdfs:label "Damage"@en.
-:IncidentMoment rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+websem:IncidentMoment rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
     rdfs:subClassOf gufo:QualityValue;
     rdfs:label "Incident Moment"@en.
-:Vulnerable rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+websem:Vulnerable rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
     rdfs:subClassOf gufo:Situation;
     rdfs:label "Vulnerable"@en.
-:UnauthorizedResult rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+websem:UnauthorizedResult rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
     rdfs:subClassOf gufo:Situation;
     rdfs:label "Unauthorized Result"@en.
-:AttackMoment rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+websem:AttackMoment rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
     rdfs:subClassOf gufo:QualityValue;
     rdfs:label "Attack Moment"@en.
-:Attacker rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+websem:Attacker rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
     rdfs:label "Attacker"@en.
-:Malicious rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+websem:Malicious rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
     rdfs:subClassOf gufo:Endurant;
     rdfs:label "Malicious"@en.
-:Target rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+websem:Target rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
     rdfs:subClassOf gufo:Quality;
     rdfs:label "Target"@en.
-:Victim rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+websem:Victim rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
     rdfs:label "Victim"@en.
-:InformationAsset rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+websem:InformationAsset rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
     rdfs:subClassOf gufo:Endurant;
     rdfs:label "Information Asset"@en.
-:Computer rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+websem:Computer rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
     rdfs:subClassOf gufo:FunctionalComplex;
     rdfs:label "Computer"@en.
-:Software rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+websem:Software rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
     rdfs:subClassOf gufo:FunctionalComplex;
     rdfs:label "Software"@en.
-:NetworkEquipament rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+websem:NetworkEquipament rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
     rdfs:subClassOf gufo:FunctionalComplex;
     rdfs:label "Network Equipament"@en.
-:Tutored rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+websem:Tutored rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
     rdfs:subClassOf gufo:Relator;
     rdfs:label "Tutored"@en.
-:Responsible rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+websem:Responsible rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
     rdfs:label "Responsible"@en.
-:OwnershipAcquisition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+websem:OwnershipAcquisition rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
     rdfs:subClassOf gufo:Relator;
     rdfs:label "Ownership Acquisition"@en.
-:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+websem:Person rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
     rdfs:subClassOf gufo:FunctionalComplex;
     rdfs:label "Person"@en.
-:LegalPerson rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+websem:LegalPerson rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
     rdfs:label "Legal Person"@en.
-:NaturalPerson rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+websem:NaturalPerson rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
     rdfs:label "Natural Person"@en.
-:TipoDeAtaque rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+websem:TipoDeAtaque rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
     rdfs:subClassOf gufo:Situation;
     rdfs:label "Tipo de Ataque"@en.
-:Malicious rdfs:subClassOf :InformationAsset.
-:Target rdfs:subClassOf :InformationAsset.
-:Software rdfs:subClassOf :InformationAsset.
-:Computer rdfs:subClassOf :InformationAsset.
-:NetworkEquipament rdfs:subClassOf :InformationAsset.
-:Victim rdfs:subClassOf :Person.
-:Attacker rdfs:subClassOf :Person.
-:LegalPerson rdfs:subClassOf :Person.
-:NaturalPerson rdfs:subClassOf :Person.
-:Responsible rdfs:subClassOf :Person.
-:Tutored rdfs:subClassOf :InformationAsset.
-:Relatorio_1 rdfs:domain :Attack;
+websem:Malicious rdfs:subClassOf websem:InformationAsset.
+websem:Target rdfs:subClassOf websem:InformationAsset.
+websem:Software rdfs:subClassOf websem:InformationAsset.
+websem:Computer rdfs:subClassOf websem:InformationAsset.
+websem:NetworkEquipament rdfs:subClassOf websem:InformationAsset.
+websem:Victim rdfs:subClassOf websem:Person.
+websem:Attacker rdfs:subClassOf websem:Person.
+websem:LegalPerson rdfs:subClassOf websem:Person.
+websem:NaturalPerson rdfs:subClassOf websem:Person.
+websem:Responsible rdfs:subClassOf websem:Person.
+websem:Tutored rdfs:subClassOf websem:InformationAsset.
+websem:Relatorio_1 rdfs:domain websem:Attack;
     rdfs:range xsd:string;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "Relatorio"@en.
-:CodigoId rdfs:domain :Incident;
+websem:CodigoId rdfs:domain websem:Incident;
     rdfs:range xsd:int;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "Codigo-id"@en.
-:Tipo rdfs:domain :Damage;
+websem:Tipo rdfs:domain websem:Damage;
     rdfs:range xsd:string;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "Tipo"@en.
-:datetime_1 rdfs:domain :IncidentMoment;
+websem:datetime_1 rdfs:domain websem:IncidentMoment;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasValueComponent;
     rdfs:label "datetime"@en.
-:Nome_1 rdfs:domain :Vulnerable;
+websem:Nome_1 rdfs:domain websem:Vulnerable;
     rdfs:range xsd:string;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "Nome"@en.
-:description rdfs:domain :UnauthorizedResult;
+websem:description rdfs:domain websem:UnauthorizedResult;
     rdfs:range xsd:string;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "description"@en.
-:datetime rdfs:domain :AttackMoment;
+websem:datetime rdfs:domain websem:AttackMoment;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasValueComponent;
     rdfs:label "datetime"@en.
-:Relatorio rdfs:domain :Attacker;
+websem:Relatorio rdfs:domain websem:Attacker;
     rdfs:range xsd:string;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "Relatorio"@en.
-:AttackerIPAddress rdfs:domain :InformationAsset;
+websem:AttackerIPAddress rdfs:domain websem:InformationAsset;
     rdfs:range xsd:string;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "Attacker-IP-Address"@en.
-:Marca rdfs:domain :Computer;
+websem:Marca rdfs:domain websem:Computer;
     rdfs:range xsd:string;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "Marca"@en.
-:Modelo rdfs:domain :Computer;
+websem:Modelo rdfs:domain websem:Computer;
     rdfs:range xsd:string;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "Modelo"@en.
-:Nome_2 rdfs:domain :Software;
+websem:Nome_2 rdfs:domain websem:Software;
     rdfs:range xsd:string;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "Nome"@en.
-:Versao rdfs:domain :Software;
+websem:Versao rdfs:domain websem:Software;
     rdfs:range xsd:string;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "Versao"@en.
-:IP rdfs:domain :NetworkEquipament;
+websem:IP rdfs:domain websem:NetworkEquipament;
     rdfs:range xsd:string;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "IP"@en.
-:MACAddress rdfs:domain :NetworkEquipament;
+websem:MACAddress rdfs:domain websem:NetworkEquipament;
     rdfs:range xsd:string;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "MAC-address"@en.
-:name rdfs:domain :Person;
+websem:name rdfs:domain websem:Person;
     rdfs:range xsd:string;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "name"@en.
-:CNPJ rdfs:domain :LegalPerson;
+websem:CNPJ rdfs:domain websem:LegalPerson;
     rdfs:range xsd:string;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "CNPJ"@en.
-:Documento rdfs:domain :NaturalPerson;
+websem:Documento rdfs:domain websem:NaturalPerson;
     rdfs:range xsd:string;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "Documento"@en.
-:Nome rdfs:domain :TipoDeAtaque;
+websem:Nome rdfs:domain websem:TipoDeAtaque;
     rdfs:range xsd:int;
     rdf:type owl:DatatypeProperty;
     rdfs:subPropertyOf gufo:hasQualityValue;
     rdfs:label "Nome"@en.
-:hasPart rdf:type owl:ObjectProperty;
-    rdfs:domain :Incident;
-    rdfs:range :Attack;
+websem:hasPart rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Incident;
+    rdfs:range websem:Attack;
     rdfs:label "hasPart"@en;
     rdfs:subPropertyOf gufo:isEventProperPartOf.
-:Compoe rdf:type owl:ObjectProperty;
-    rdfs:range :Incident;
-    rdfs:domain :Attack;
+websem:Compoe rdf:type owl:ObjectProperty;
+    rdfs:range websem:Incident;
+    rdfs:domain websem:Attack;
     rdfs:label "Compoe"@en;
     rdfs:subPropertyOf <gufoi:hasEventProperPart>.
-:Causa rdf:type owl:ObjectProperty;
-    rdfs:domain :Incident;
-    rdfs:range :Damage;
+websem:Causa rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Incident;
+    rdfs:range websem:Damage;
     rdfs:subPropertyOf gufo:broughtAbout.
-:Consequencia rdf:type owl:ObjectProperty;
-    rdfs:range :Incident;
-    rdfs:domain :Damage;
+websem:Consequencia rdf:type owl:ObjectProperty;
+    rdfs:range websem:Incident;
+    rdfs:domain websem:Damage;
     rdfs:label "Consequencia"@en;
     rdfs:subPropertyOf <gufoi:wasBroughtAboutBy>.
-:obtainsIn_1 rdf:type owl:ObjectProperty;
-    rdfs:domain :Damage;
-    rdfs:range :IncidentMoment;
+websem:obtainsIn_1 rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Damage;
+    rdfs:range websem:IncidentMoment;
     rdfs:label "obtainsIn"@en;
     rdfs:subPropertyOf gufo:historicallyDependsOn.
-:damageHistoricallyDependsOnIncidentMoment rdf:type owl:ObjectProperty;
-    rdfs:range :Damage;
-    rdfs:domain :IncidentMoment.
-:chYI0mDAACAQqN rdfs:label ""@en.
-:damageHistoricallyDependsOnIncidentMoment rdfs:subPropertyOf <gufoi:hasHistoricalDependee>.
-:endsAt_1 rdf:type owl:ObjectProperty;
-    rdfs:domain :Incident;
-    rdfs:range :IncidentMoment;
+websem:damageHistoricallyDependsOnIncidentMoment rdf:type owl:ObjectProperty;
+    rdfs:range websem:Damage;
+    rdfs:domain websem:IncidentMoment.
+websem:chYI0mDAACAQqN rdfs:label ""@en.
+websem:damageHistoricallyDependsOnIncidentMoment rdfs:subPropertyOf <gufoi:hasHistoricalDependee>.
+websem:endsAt_1 rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Incident;
+    rdfs:range websem:IncidentMoment;
     rdfs:label "ends at"@en;
     rdfs:subPropertyOf gufo:inheresIn.
-:incidentInheresInIncidentMoment rdf:type owl:ObjectProperty;
-    rdfs:range :Incident;
-    rdfs:domain :IncidentMoment.
-:_EeEI0mDAACAQrU rdfs:label ""@en.
-:incidentInheresInIncidentMoment rdfs:subPropertyOf <gufoi:bears>.
-:Atrai rdf:type owl:ObjectProperty;
-    rdfs:domain :Attack;
-    rdfs:range :Vulnerable;
+websem:incidentInheresInIncidentMoment rdf:type owl:ObjectProperty;
+    rdfs:range websem:Incident;
+    rdfs:domain websem:IncidentMoment.
+websem:_EeEI0mDAACAQrU rdfs:label ""@en.
+websem:incidentInheresInIncidentMoment rdfs:subPropertyOf <gufoi:bears>.
+websem:Atrai rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Attack;
+    rdfs:range websem:Vulnerable;
     rdfs:subPropertyOf gufo:contributedToTrigger.
-:Explora rdf:type owl:ObjectProperty;
-    rdfs:range :Attack;
-    rdfs:domain :Vulnerable;
+websem:Explora rdf:type owl:ObjectProperty;
+    rdfs:range websem:Attack;
+    rdfs:domain websem:Vulnerable;
     rdfs:label "Explora"@en;
     rdfs:subPropertyOf <gufoi:wasTriggeredBy>.
-:Gera rdf:type owl:ObjectProperty;
-    rdfs:domain :Attack;
-    rdfs:range :UnauthorizedResult;
+websem:Gera rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Attack;
+    rdfs:range websem:UnauthorizedResult;
     rdfs:subPropertyOf gufo:broughtAbout.
-:Causado rdf:type owl:ObjectProperty;
-    rdfs:range :Attack;
-    rdfs:domain :UnauthorizedResult;
+websem:Causado rdf:type owl:ObjectProperty;
+    rdfs:range websem:Attack;
+    rdfs:domain websem:UnauthorizedResult;
     rdfs:label "Causado"@en;
     rdfs:subPropertyOf <gufoi:wasBroughtAboutBy>.
-:obtainsIn rdf:type owl:ObjectProperty;
-    rdfs:domain :UnauthorizedResult;
-    rdfs:range :AttackMoment;
+websem:obtainsIn rdf:type owl:ObjectProperty;
+    rdfs:domain websem:UnauthorizedResult;
+    rdfs:range websem:AttackMoment;
     rdfs:label "obtainsIn"@en;
     rdfs:subPropertyOf gufo:historicallyDependsOn.
-:unauthorizedResultHistoricallyDependsOnAttackMoment rdf:type owl:ObjectProperty;
-    rdfs:range :UnauthorizedResult;
-    rdfs:domain :AttackMoment.
-:QK50I0mDAACAQvP rdfs:label ""@en.
-:unauthorizedResultHistoricallyDependsOnAttackMoment rdfs:subPropertyOf <gufoi:hasHistoricalDependee>.
-:endsAt rdf:type owl:ObjectProperty;
-    rdfs:domain :Attack;
-    rdfs:range :AttackMoment;
+websem:unauthorizedResultHistoricallyDependsOnAttackMoment rdf:type owl:ObjectProperty;
+    rdfs:range websem:UnauthorizedResult;
+    rdfs:domain websem:AttackMoment.
+websem:QK50I0mDAACAQvP rdfs:label ""@en.
+websem:unauthorizedResultHistoricallyDependsOnAttackMoment rdfs:subPropertyOf <gufoi:hasHistoricalDependee>.
+websem:endsAt rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Attack;
+    rdfs:range websem:AttackMoment;
     rdfs:label "ends at"@en;
     rdfs:subPropertyOf gufo:inheresIn.
-:attackInheresInAttackMoment rdf:type owl:ObjectProperty;
-    rdfs:range :Attack;
-    rdfs:domain :AttackMoment.
-:HlPMI0mDAACAQw7 rdfs:label ""@en.
-:attackInheresInAttackMoment rdfs:subPropertyOf <gufoi:bears>.
-:incidentParticipatedInAttacker rdf:type owl:ObjectProperty;
-    rdfs:domain :Incident;
-    rdfs:range :Attacker;
+websem:attackInheresInAttackMoment rdf:type owl:ObjectProperty;
+    rdfs:range websem:Attack;
+    rdfs:domain websem:AttackMoment.
+websem:HlPMI0mDAACAQw7 rdfs:label ""@en.
+websem:attackInheresInAttackMoment rdfs:subPropertyOf <gufoi:bears>.
+websem:incidentParticipatedInAttacker rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Incident;
+    rdfs:range websem:Attacker;
     rdfs:subPropertyOf gufo:participatedIn;
     rdf:type owl:ObjectProperty;
-    rdfs:range :Incident;
-    rdfs:domain :Attacker.
-:JensI0mDAACAQyp rdfs:label ""@en.
-:incidentParticipatedInAttacker rdfs:subPropertyOf <gufoi:hadParticipant>.
-:attackParticipatedInMalicious rdf:type owl:ObjectProperty;
-    rdfs:domain :Attack;
-    rdfs:range :Malicious;
+    rdfs:range websem:Incident;
+    rdfs:domain websem:Attacker.
+websem:JensI0mDAACAQyp rdfs:label ""@en.
+websem:incidentParticipatedInAttacker rdfs:subPropertyOf <gufoi:hadParticipant>.
+websem:attackParticipatedInMalicious rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Attack;
+    rdfs:range websem:Malicious;
     rdfs:label ""@en;
     rdfs:subPropertyOf gufo:participatedIn;
     rdf:type owl:ObjectProperty;
-    rdfs:range :Attack;
-    rdfs:domain :Malicious.
-:iscI0mDAACAQ0H rdfs:label ""@en.
-:attackParticipatedInMalicious rdfs:subPropertyOf <gufoi:hadParticipant>.
-:attackParticipatedInTarget rdf:type owl:ObjectProperty;
-    rdfs:domain :Attack;
-    rdfs:range :Target;
+    rdfs:range websem:Attack;
+    rdfs:domain websem:Malicious.
+websem:iscI0mDAACAQ0H rdfs:label ""@en.
+websem:attackParticipatedInMalicious rdfs:subPropertyOf <gufoi:hadParticipant>.
+websem:attackParticipatedInTarget rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Attack;
+    rdfs:range websem:Target;
     rdfs:label ""@en;
     rdfs:subPropertyOf gufo:participatedIn;
     rdf:type owl:ObjectProperty;
-    rdfs:range :Attack;
-    rdfs:domain :Target.
-:nY3cI0mDAACAQ1i rdfs:label ""@en.
-:attackParticipatedInTarget rdfs:subPropertyOf <gufoi:hadParticipant>.
-:incidentParticipatedInVictim rdf:type owl:ObjectProperty;
-    rdfs:domain :Incident;
-    rdfs:range :Victim;
+    rdfs:range websem:Attack;
+    rdfs:domain websem:Target.
+websem:nY3cI0mDAACAQ1i rdfs:label ""@en.
+websem:attackParticipatedInTarget rdfs:subPropertyOf <gufoi:hadParticipant>.
+websem:incidentParticipatedInVictim rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Incident;
+    rdfs:range websem:Victim;
     rdfs:label ""@en;
     rdfs:subPropertyOf gufo:participatedIn;
     rdf:type owl:ObjectProperty;
-    rdfs:range :Incident;
-    rdfs:domain :Victim.
-:dxM8I0mDAACAQ2g rdfs:label ""@en.
-:incidentParticipatedInVictim rdfs:subPropertyOf <gufoi:hadParticipant>.
-:hasOwnership rdf:type owl:ObjectProperty;
-    rdfs:domain :Tutored;
-    rdfs:range :Responsible;
+    rdfs:range websem:Incident;
+    rdfs:domain websem:Victim.
+websem:dxM8I0mDAACAQ2g rdfs:label ""@en.
+websem:incidentParticipatedInVictim rdfs:subPropertyOf <gufoi:hadParticipant>.
+websem:hasOwnership rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Tutored;
+    rdfs:range websem:Responsible;
     rdfs:label "has ownership"@en;
     rdf:type gufo:MaterialRelationshipType.
-:tutoredHasResponsible rdf:type owl:ObjectProperty;
-    rdfs:range :Tutored;
-    rdfs:domain :Responsible.
-:Qi8bI0mDAACAQ_E rdfs:label ""@en.
-:tutoredHasResponsible rdf:type gufo:MaterialRelationshipType.
-:tutoredMediatesOwnershipAcquisition rdf:type owl:ObjectProperty;
-    rdfs:domain :Tutored;
-    rdfs:range :OwnershipAcquisition;
+websem:tutoredHasResponsible rdf:type owl:ObjectProperty;
+    rdfs:range websem:Tutored;
+    rdfs:domain websem:Responsible.
+websem:Qi8bI0mDAACAQ_E rdfs:label ""@en.
+websem:tutoredHasResponsible rdf:type gufo:MaterialRelationshipType.
+websem:tutoredMediatesOwnershipAcquisition rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Tutored;
+    rdfs:range websem:OwnershipAcquisition;
     rdfs:subPropertyOf gufo:mediates;
     rdf:type owl:ObjectProperty;
-    rdfs:range :Tutored;
-    rdfs:domain :OwnershipAcquisition.
-:0atbI0mDAACARAP rdfs:label ""@en.
-:tutoredMediatesOwnershipAcquisition rdfs:subPropertyOf <gufoi:isMediatedBy>.
-:responsibleMediatesOwnershipAcquisition rdf:type owl:ObjectProperty;
-    rdfs:domain :Responsible;
-    rdfs:range :OwnershipAcquisition;
+    rdfs:range websem:Tutored;
+    rdfs:domain websem:OwnershipAcquisition.
+websem:0atbI0mDAACARAP rdfs:label ""@en.
+websem:tutoredMediatesOwnershipAcquisition rdfs:subPropertyOf <gufoi:isMediatedBy>.
+websem:responsibleMediatesOwnershipAcquisition rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Responsible;
+    rdfs:range websem:OwnershipAcquisition;
     rdfs:subPropertyOf gufo:mediates;
     rdf:type owl:ObjectProperty;
-    rdfs:range :Responsible;
-    rdfs:domain :OwnershipAcquisition.
-:O5xXI0mDAACARCT rdfs:label ""@en.
-:responsibleMediatesOwnershipAcquisition rdfs:subPropertyOf <gufoi:isMediatedBy>.
-:presentIn rdf:type owl:ObjectProperty;
-    rdfs:domain :Victim;
-    rdfs:range :Damage;
+    rdfs:range websem:Responsible;
+    rdfs:domain websem:OwnershipAcquisition.
+websem:O5xXI0mDAACARCT rdfs:label ""@en.
+websem:responsibleMediatesOwnershipAcquisition rdfs:subPropertyOf <gufoi:isMediatedBy>.
+websem:presentIn rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Victim;
+    rdfs:range websem:Damage;
     rdfs:label "present in"@en;
     rdfs:subPropertyOf gufo:inheresIn.
-:Atinge rdf:type owl:ObjectProperty;
-    rdfs:range :Victim;
-    rdfs:domain :Damage;
+websem:Atinge rdf:type owl:ObjectProperty;
+    rdfs:range websem:Victim;
+    rdfs:domain websem:Damage;
     rdfs:label "Atinge"@en;
     rdfs:subPropertyOf <gufoi:bears>.
-:presentIn_2 rdf:type owl:ObjectProperty;
-    rdfs:domain :InformationAsset;
-    rdfs:range :Vulnerable;
+websem:presentIn_2 rdf:type owl:ObjectProperty;
+    rdfs:domain websem:InformationAsset;
+    rdfs:range websem:Vulnerable;
     rdfs:label "present in"@en;
     rdfs:subPropertyOf gufo:inheresIn.
-:Possui rdf:type owl:ObjectProperty;
-    rdfs:range :InformationAsset;
-    rdfs:domain :Vulnerable;
+websem:Possui rdf:type owl:ObjectProperty;
+    rdfs:range websem:InformationAsset;
+    rdfs:domain websem:Vulnerable;
     rdfs:label "Possui"@en;
     rdfs:subPropertyOf <gufoi:bears>.
-:presentIn_1 rdf:type owl:ObjectProperty;
-    rdfs:domain :InformationAsset;
-    rdfs:range :UnauthorizedResult;
+websem:presentIn_1 rdf:type owl:ObjectProperty;
+    rdfs:domain websem:InformationAsset;
+    rdfs:range websem:UnauthorizedResult;
     rdfs:label "present in"@en;
     rdfs:subPropertyOf gufo:inheresIn.
-:Ocorreu rdf:type owl:ObjectProperty;
-    rdfs:range :InformationAsset;
-    rdfs:domain :UnauthorizedResult;
+websem:Ocorreu rdf:type owl:ObjectProperty;
+    rdfs:range websem:InformationAsset;
+    rdfs:domain websem:UnauthorizedResult;
     rdfs:label "Ocorreu"@en;
     rdfs:subPropertyOf <gufoi:bears>.
-:beginsAt_1 rdf:type owl:ObjectProperty;
-    rdfs:domain :Incident;
-    rdfs:range :IncidentMoment;
+websem:beginsAt_1 rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Incident;
+    rdfs:range websem:IncidentMoment;
     rdfs:label "begins at"@en;
     rdfs:subPropertyOf gufo:inheresIn.
-:incidentInheresInIncidentMoment rdf:type owl:ObjectProperty;
-    rdfs:range :Incident;
-    rdfs:domain :IncidentMoment.
-:JJ6FgMmDAACARGB rdfs:label ""@en.
-:incidentInheresInIncidentMoment rdfs:subPropertyOf <gufoi:bears>.
-:beginsAt rdf:type owl:ObjectProperty;
-    rdfs:domain :Attack;
-    rdfs:range :AttackMoment;
+websem:incidentInheresInIncidentMoment rdf:type owl:ObjectProperty;
+    rdfs:range websem:Incident;
+    rdfs:domain websem:IncidentMoment.
+websem:JJ6FgMmDAACARGB rdfs:label ""@en.
+websem:incidentInheresInIncidentMoment rdfs:subPropertyOf <gufoi:bears>.
+websem:beginsAt rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Attack;
+    rdfs:range websem:AttackMoment;
     rdfs:label "begins at"@en;
     rdfs:subPropertyOf gufo:inheresIn.
-:attackInheresInAttackMoment rdf:type owl:ObjectProperty;
-    rdfs:range :Attack;
-    rdfs:domain :AttackMoment.
-:a0XlgMmDAACARIt rdfs:label ""@en.
-:attackInheresInAttackMoment rdfs:subPropertyOf <gufoi:bears>.
-:Classifica rdf:type owl:ObjectProperty;
-    rdfs:domain :Attack;
-    rdfs:range :TipoDeAtaque.
-:Detalha rdf:type owl:ObjectProperty;
-    rdfs:range :Attack;
-    rdfs:domain :TipoDeAtaque;
+websem:attackInheresInAttackMoment rdf:type owl:ObjectProperty;
+    rdfs:range websem:Attack;
+    rdfs:domain websem:AttackMoment.
+websem:a0XlgMmDAACARIt rdfs:label ""@en.
+websem:attackInheresInAttackMoment rdfs:subPropertyOf <gufoi:bears>.
+websem:Classifica rdf:type owl:ObjectProperty;
+    rdfs:domain websem:Attack;
+    rdfs:range websem:TipoDeAtaque.
+websem:Detalha rdf:type owl:ObjectProperty;
+    rdfs:range websem:Attack;
+    rdfs:domain websem:TipoDeAtaque;
     rdfs:label "Detalha"@en.
-:Attack rdfs:subClassOf [
+websem:Attack rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :Compoe;
+  owl:onProperty websem:Compoe;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Incident
+  owl:onClass websem:Incident
 ].
-:Incident rdfs:subClassOf [
+websem:Incident rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :hasPart;
-  owl:someValuesFrom :Attack
+  owl:onProperty websem:hasPart;
+  owl:someValuesFrom websem:Attack
 ], [
   rdf:type owl:Restriction;
-  owl:onProperty :Causa;
-  owl:someValuesFrom :Damage
+  owl:onProperty websem:Causa;
+  owl:someValuesFrom websem:Damage
 ].
-:IncidentMoment rdfs:subClassOf [
+websem:IncidentMoment rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :damageHistoricallyDependsOnIncidentMoment;
+  owl:onProperty websem:damageHistoricallyDependsOnIncidentMoment;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Damage
+  owl:onClass websem:Damage
 ].
-:Damage rdfs:subClassOf [
+websem:Damage rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :obtainsIn_1;
-  owl:someValuesFrom :IncidentMoment
+  owl:onProperty websem:obtainsIn_1;
+  owl:someValuesFrom websem:IncidentMoment
 ].
-:IncidentMoment rdfs:subClassOf [
+websem:IncidentMoment rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :incidentInheresInIncidentMoment;
+  owl:onProperty websem:incidentInheresInIncidentMoment;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Incident
+  owl:onClass websem:Incident
 ].
-:Incident rdfs:subClassOf [
+websem:Incident rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :endsAt_1;
+  owl:onProperty websem:endsAt_1;
   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :IncidentMoment
+  owl:onClass websem:IncidentMoment
 ].
-:Attack rdfs:subClassOf [
+websem:Attack rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :Atrai;
+  owl:onProperty websem:Atrai;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Vulnerable
+  owl:onClass websem:Vulnerable
 ].
-:UnauthorizedResult rdfs:subClassOf [
+websem:UnauthorizedResult rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :Causado;
+  owl:onProperty websem:Causado;
   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Attack
+  owl:onClass websem:Attack
 ].
-:Attack rdfs:subClassOf [
+websem:Attack rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :Gera;
+  owl:onProperty websem:Gera;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :UnauthorizedResult
+  owl:onClass websem:UnauthorizedResult
 ].
-:AttackMoment rdfs:subClassOf [
+websem:AttackMoment rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :unauthorizedResultHistoricallyDependsOnAttackMoment;
-  owl:someValuesFrom :UnauthorizedResult
+  owl:onProperty websem:unauthorizedResultHistoricallyDependsOnAttackMoment;
+  owl:someValuesFrom websem:UnauthorizedResult
 ].
-:UnauthorizedResult rdfs:subClassOf [
+websem:UnauthorizedResult rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :obtainsIn;
+  owl:onProperty websem:obtainsIn;
   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :AttackMoment
+  owl:onClass websem:AttackMoment
 ].
-:AttackMoment rdfs:subClassOf [
+websem:AttackMoment rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :attackInheresInAttackMoment;
+  owl:onProperty websem:attackInheresInAttackMoment;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Attack
+  owl:onClass websem:Attack
 ].
-:Attack rdfs:subClassOf [
+websem:Attack rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :endsAt;
-  owl:someValuesFrom :AttackMoment
+  owl:onProperty websem:endsAt;
+  owl:someValuesFrom websem:AttackMoment
 ].
-:Attacker rdfs:subClassOf [
+websem:Attacker rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :incidentParticipatedInAttacker;
+  owl:onProperty websem:incidentParticipatedInAttacker;
   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Incident
+  owl:onClass websem:Incident
 ].
-:Malicious rdfs:subClassOf [
+websem:Malicious rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :attackParticipatedInMalicious;
+  owl:onProperty websem:attackParticipatedInMalicious;
   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Attack
+  owl:onClass websem:Attack
 ].
-:Attack rdfs:subClassOf [
+websem:Attack rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :attackParticipatedInMalicious;
-  owl:someValuesFrom :Malicious
+  owl:onProperty websem:attackParticipatedInMalicious;
+  owl:someValuesFrom websem:Malicious
 ].
-:Target rdfs:subClassOf [
+websem:Target rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :attackParticipatedInTarget;
+  owl:onProperty websem:attackParticipatedInTarget;
   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Attack
+  owl:onClass websem:Attack
 ].
-:Attack rdfs:subClassOf [
+websem:Attack rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :attackParticipatedInTarget;
-  owl:someValuesFrom :Target
+  owl:onProperty websem:attackParticipatedInTarget;
+  owl:someValuesFrom websem:Target
 ].
-:Victim rdfs:subClassOf [
+websem:Victim rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :incidentParticipatedInVictim;
+  owl:onProperty websem:incidentParticipatedInVictim;
   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Incident
+  owl:onClass websem:Incident
 ].
-:OwnershipAcquisition rdfs:subClassOf [
+websem:OwnershipAcquisition rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :tutoredMediatesOwnershipAcquisition;
-  owl:someValuesFrom :Tutored
+  owl:onProperty websem:tutoredMediatesOwnershipAcquisition;
+  owl:someValuesFrom websem:Tutored
 ].
-:Tutored rdfs:subClassOf [
+websem:Tutored rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :tutoredMediatesOwnershipAcquisition;
+  owl:onProperty websem:tutoredMediatesOwnershipAcquisition;
   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :OwnershipAcquisition
+  owl:onClass websem:OwnershipAcquisition
 ].
-:OwnershipAcquisition rdfs:subClassOf [
+websem:OwnershipAcquisition rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :responsibleMediatesOwnershipAcquisition;
+  owl:onProperty websem:responsibleMediatesOwnershipAcquisition;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Responsible
+  owl:onClass websem:Responsible
 ].
-:Responsible rdfs:subClassOf [
+websem:Responsible rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :responsibleMediatesOwnershipAcquisition;
-  owl:someValuesFrom :OwnershipAcquisition
+  owl:onProperty websem:responsibleMediatesOwnershipAcquisition;
+  owl:someValuesFrom websem:OwnershipAcquisition
 ].
-:Damage rdfs:subClassOf [
+websem:Damage rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :Atinge;
+  owl:onProperty websem:Atinge;
   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Victim
+  owl:onClass websem:Victim
 ].
-:Victim rdfs:subClassOf [
+websem:Victim rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :presentIn;
+  owl:onProperty websem:presentIn;
   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Damage
+  owl:onClass websem:Damage
 ].
-:Vulnerable rdfs:subClassOf [
+websem:Vulnerable rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :Possui;
+  owl:onProperty websem:Possui;
   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :InformationAsset
+  owl:onClass websem:InformationAsset
 ].
-:InformationAsset rdfs:subClassOf [
+websem:InformationAsset rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :presentIn_2;
+  owl:onProperty websem:presentIn_2;
   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Vulnerable
+  owl:onClass websem:Vulnerable
 ].
-:UnauthorizedResult rdfs:subClassOf [
+websem:UnauthorizedResult rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :Ocorreu;
+  owl:onProperty websem:Ocorreu;
   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :InformationAsset
+  owl:onClass websem:InformationAsset
 ].
-:InformationAsset rdfs:subClassOf [
+websem:InformationAsset rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :presentIn_1;
+  owl:onProperty websem:presentIn_1;
   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :UnauthorizedResult
+  owl:onClass websem:UnauthorizedResult
 ].
-:IncidentMoment rdfs:subClassOf [
+websem:IncidentMoment rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :incidentInheresInIncidentMoment;
+  owl:onProperty websem:incidentInheresInIncidentMoment;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Incident
+  owl:onClass websem:Incident
 ].
-:Incident rdfs:subClassOf [
+websem:Incident rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :beginsAt_1;
+  owl:onProperty websem:beginsAt_1;
   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :IncidentMoment
+  owl:onClass websem:IncidentMoment
 ].
-:AttackMoment rdfs:subClassOf [
+websem:AttackMoment rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :attackInheresInAttackMoment;
+  owl:onProperty websem:attackInheresInAttackMoment;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :Attack
+  owl:onClass websem:Attack
 ].
-:Attack rdfs:subClassOf [
+websem:Attack rdfs:subClassOf [
   rdf:type owl:Restriction;
-  owl:onProperty :beginsAt;
-  owl:someValuesFrom :AttackMoment
+  owl:onProperty websem:beginsAt;
+  owl:someValuesFrom websem:AttackMoment
 ].
 
-:AttackMoment_1 a :AttackMoment ;
+websem:AttackMoment_1 a websem:AttackMoment ;
     foaf:name "AttackMoment1" .
 
-:AttackMoment_10 a :AttackMoment ;
-    :attackInheresInAttackMoment :Attack_9 ;
+websem:AttackMoment_10 a websem:AttackMoment ;
+    websem:attackInheresInAttackMoment websem:Attack_9 ;
     foaf:name "AttackMoment10" .
 
-:AttackMoment_2 a :AttackMoment ;
+websem:AttackMoment_2 a websem:AttackMoment ;
     foaf:name "AttackMoment2" .
 
-:AttackMoment_6 a :AttackMoment ;
+websem:AttackMoment_6 a websem:AttackMoment ;
     foaf:name "AttackMoment6" .
 
-:AttackMoment_8 a :AttackMoment ;
-    :attackInheresInAttackMoment :Attack_10 ;
-    :unauthorizedResultHistoricallyDependsOnAttackMoment :UnauthorizedResult_5 ;
+websem:AttackMoment_8 a websem:AttackMoment ;
+    websem:attackInheresInAttackMoment websem:Attack_10 ;
+    websem:unauthorizedResultHistoricallyDependsOnAttackMoment websem:UnauthorizedResult_5 ;
     foaf:name "AttackMoment8" .
 
-:Attack_3 a :Attack ;
+websem:Attack_3 a websem:Attack ;
     foaf:name "Attack3" .
 
-:AttackerIPAddress a owl:DatatypeProperty ;
+websem:AttackerIPAddress a owl:DatatypeProperty ;
     rdfs:label "Attacker-IP-Address"@en ;
-    rdfs:domain :InformationAsset ;
+    rdfs:domain websem:InformationAsset ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:Attacker_1 a :Attacker ;
+websem:Attacker_1 a websem:Attacker ;
     foaf:name "Attacker1" .
 
-:Attacker_10 a :Attacker ;
+websem:Attacker_10 a websem:Attacker ;
     foaf:name "Attacker10" .
 
-:Attacker_2 a :Attacker ;
+websem:Attacker_2 a websem:Attacker ;
     foaf:name "Attacker2" .
 
-:Attacker_3 a :Attacker ;
+websem:Attacker_3 a websem:Attacker ;
     foaf:name "Attacker3" .
 
-:Attacker_4 a :Attacker ;
+websem:Attacker_4 a websem:Attacker ;
     foaf:name "Attacker4" .
 
-:Attacker_5 a :Attacker ;
+websem:Attacker_5 a websem:Attacker ;
     foaf:name "Attacker5" .
 
-:Attacker_6 a :Attacker ;
+websem:Attacker_6 a websem:Attacker ;
     foaf:name "Attacker6" .
 
-:Attacker_7 a :Attacker ;
-    :incidentParticipatedInAttacker :Incident_8 ;
+websem:Attacker_7 a websem:Attacker ;
+    websem:incidentParticipatedInAttacker websem:Incident_8 ;
     foaf:name "Attacker7" .
 
-:Attacker_8 a :Attacker ;
+websem:Attacker_8 a websem:Attacker ;
     foaf:name "Attacker8" .
 
-:Attacker_9 a :Attacker ;
-    :incidentParticipatedInAttacker :Incident_1 ;
+websem:Attacker_9 a websem:Attacker ;
+    websem:incidentParticipatedInAttacker websem:Incident_1 ;
     foaf:name "Attacker9" .
 
-:CNPJ a owl:DatatypeProperty ;
+websem:CNPJ a owl:DatatypeProperty ;
     rdfs:label "CNPJ"@en ;
-    rdfs:domain :LegalPerson ;
+    rdfs:domain websem:LegalPerson ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:Classifica a owl:ObjectProperty ;
-    rdfs:domain :Attack ;
-    rdfs:range :TipoDeAtaque .
+websem:Classifica a owl:ObjectProperty ;
+    rdfs:domain websem:Attack ;
+    rdfs:range websem:TipoDeAtaque .
 
-:CodigoId a owl:DatatypeProperty ;
+websem:CodigoId a owl:DatatypeProperty ;
     rdfs:label "Codigo-id"@en ;
-    rdfs:domain :Incident ;
+    rdfs:domain websem:Incident ;
     rdfs:range xsd:int ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:Computer_1 a :Computer ;
+websem:Computer_1 a websem:Computer ;
     foaf:name "Computer1" .
 
-:Computer_10 a :Computer ;
+websem:Computer_10 a websem:Computer ;
     foaf:name "Computer10" .
 
-:Computer_2 a :Computer ;
+websem:Computer_2 a websem:Computer ;
     foaf:name "Computer2" .
 
-:Computer_3 a :Computer ;
+websem:Computer_3 a websem:Computer ;
     foaf:name "Computer3" .
 
-:Computer_4 a :Computer ;
+websem:Computer_4 a websem:Computer ;
     foaf:name "Computer4" .
 
-:Computer_5 a :Computer ;
+websem:Computer_5 a websem:Computer ;
     foaf:name "Computer5" .
 
-:Computer_6 a :Computer ;
+websem:Computer_6 a websem:Computer ;
     foaf:name "Computer6" .
 
-:Computer_7 a :Computer ;
+websem:Computer_7 a websem:Computer ;
     foaf:name "Computer7" .
 
-:Computer_8 a :Computer ;
+websem:Computer_8 a websem:Computer ;
     foaf:name "Computer8" .
 
-:Computer_9 a :Computer ;
+websem:Computer_9 a websem:Computer ;
     foaf:name "Computer9" .
 
-:Consequencia a owl:ObjectProperty ;
+websem:Consequencia a owl:ObjectProperty ;
     rdfs:label "Consequencia"@en ;
-    rdfs:domain :Damage ;
-    rdfs:range :Incident ;
+    rdfs:domain websem:Damage ;
+    rdfs:range websem:Incident ;
     rdfs:subPropertyOf <gufoi:wasBroughtAboutBy> .
 
-:Damage_1 a :Damage ;
-    :Atinge :Victim_4 ;
+websem:Damage_1 a websem:Damage ;
+    websem:Atinge websem:Victim_4 ;
     foaf:name "Damage1" .
 
-:Damage_2 a :Damage ;
-    :Atinge :Victim_6 ;
+websem:Damage_2 a websem:Damage ;
+    websem:Atinge websem:Victim_6 ;
     foaf:name "Damage2" .
 
-:Damage_5 a :Damage ;
+websem:Damage_5 a websem:Damage ;
     foaf:name "Damage5" .
 
-:Damage_6 a :Damage ;
+websem:Damage_6 a websem:Damage ;
     foaf:name "Damage6" .
 
-:Damage_7 a :Damage ;
-    :Consequencia :Incident_10 ;
+websem:Damage_7 a websem:Damage ;
+    websem:Consequencia websem:Incident_10 ;
     foaf:name "Damage7" .
 
-:Damage_9 a :Damage ;
+websem:Damage_9 a websem:Damage ;
     foaf:name "Damage9" .
 
-:Detalha a owl:ObjectProperty ;
+websem:Detalha a owl:ObjectProperty ;
     rdfs:label "Detalha"@en ;
-    rdfs:domain :TipoDeAtaque ;
-    rdfs:range :Attack .
+    rdfs:domain websem:TipoDeAtaque ;
+    rdfs:range websem:Attack .
 
-:Documento a owl:DatatypeProperty ;
+websem:Documento a owl:DatatypeProperty ;
     rdfs:label "Documento"@en ;
-    rdfs:domain :NaturalPerson ;
+    rdfs:domain websem:NaturalPerson ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:Explora a owl:ObjectProperty ;
+websem:Explora a owl:ObjectProperty ;
     rdfs:label "Explora"@en ;
-    rdfs:domain :Vulnerable ;
-    rdfs:range :Attack ;
+    rdfs:domain websem:Vulnerable ;
+    rdfs:range websem:Attack ;
     rdfs:subPropertyOf <gufoi:wasTriggeredBy> .
 
-:HlPMI0mDAACAQw7 rdfs:label ""@en .
+websem:HlPMI0mDAACAQw7 rdfs:label ""@en .
 
-:IP a owl:DatatypeProperty ;
+websem:IP a owl:DatatypeProperty ;
     rdfs:label "IP"@en ;
-    rdfs:domain :NetworkEquipament ;
+    rdfs:domain websem:NetworkEquipament ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:IncidentMoment_1 a :IncidentMoment ;
+websem:IncidentMoment_1 a websem:IncidentMoment ;
     foaf:name "IncidentMoment1" .
 
-:IncidentMoment_4 a :IncidentMoment ;
+websem:IncidentMoment_4 a websem:IncidentMoment ;
     foaf:name "IncidentMoment4" .
 
-:IncidentMoment_7 a :IncidentMoment ;
+websem:IncidentMoment_7 a websem:IncidentMoment ;
     foaf:name "IncidentMoment7" .
 
-:IncidentMoment_8 a :IncidentMoment ;
-    :damageHistoricallyDependsOnIncidentMoment :Damage_4 ;
+websem:IncidentMoment_8 a websem:IncidentMoment ;
+    websem:damageHistoricallyDependsOnIncidentMoment websem:Damage_4 ;
     foaf:name "IncidentMoment8" .
 
-:IncidentMoment_9 a :IncidentMoment ;
+websem:IncidentMoment_9 a websem:IncidentMoment ;
     foaf:name "IncidentMoment9" .
 
-:Incident_2 a :Incident ;
-    :beginsAt_1 :IncidentMoment_6 ;
+websem:Incident_2 a websem:Incident ;
+    websem:beginsAt_1 websem:IncidentMoment_6 ;
     foaf:name "Incident2" .
 
-:Incident_6 a :Incident ;
-    :endsAt_1 :IncidentMoment_3 ;
+websem:Incident_6 a websem:Incident ;
+    websem:endsAt_1 websem:IncidentMoment_3 ;
     foaf:name "Incident6" .
 
-:Incident_7 a :Incident ;
-    :hasPart :Attack_7 ;
+websem:Incident_7 a websem:Incident ;
+    websem:hasPart websem:Attack_7 ;
     foaf:name "Incident7" .
 
-:Incident_9 a :Incident ;
+websem:Incident_9 a websem:Incident ;
     foaf:name "Incident9" .
 
-:InformationAsset_10 a :InformationAsset ;
-    :presentIn_1 :UnauthorizedResult_7 ;
+websem:InformationAsset_10 a websem:InformationAsset ;
+    websem:presentIn_1 websem:UnauthorizedResult_7 ;
     foaf:name "InformationAsset10" .
 
-:InformationAsset_3 a :InformationAsset ;
-    :presentIn_1 :UnauthorizedResult_6 ;
+websem:InformationAsset_3 a websem:InformationAsset ;
+    websem:presentIn_1 websem:UnauthorizedResult_6 ;
     foaf:name "InformationAsset3" .
 
-:InformationAsset_4 a :InformationAsset ;
+websem:InformationAsset_4 a websem:InformationAsset ;
     foaf:name "InformationAsset4" .
 
-:InformationAsset_5 a :InformationAsset ;
+websem:InformationAsset_5 a websem:InformationAsset ;
     foaf:name "InformationAsset5" .
 
-:InformationAsset_6 a :InformationAsset ;
+websem:InformationAsset_6 a websem:InformationAsset ;
     foaf:name "InformationAsset6" .
 
-:InformationAsset_9 a :InformationAsset ;
+websem:InformationAsset_9 a websem:InformationAsset ;
     foaf:name "InformationAsset9" .
 
-:JJ6FgMmDAACARGB rdfs:label ""@en .
+websem:JJ6FgMmDAACARGB rdfs:label ""@en .
 
-:JensI0mDAACAQyp rdfs:label ""@en .
+websem:JensI0mDAACAQyp rdfs:label ""@en .
 
-:LegalPerson_1 a :LegalPerson ;
+websem:LegalPerson_1 a websem:LegalPerson ;
     foaf:name "LegalPerson1" .
 
-:LegalPerson_10 a :LegalPerson ;
+websem:LegalPerson_10 a websem:LegalPerson ;
     foaf:name "LegalPerson10" .
 
-:LegalPerson_2 a :LegalPerson ;
+websem:LegalPerson_2 a websem:LegalPerson ;
     foaf:name "LegalPerson2" .
 
-:LegalPerson_3 a :LegalPerson ;
+websem:LegalPerson_3 a websem:LegalPerson ;
     foaf:name "LegalPerson3" .
 
-:LegalPerson_4 a :LegalPerson ;
+websem:LegalPerson_4 a websem:LegalPerson ;
     foaf:name "LegalPerson4" .
 
-:LegalPerson_5 a :LegalPerson ;
+websem:LegalPerson_5 a websem:LegalPerson ;
     foaf:name "LegalPerson5" .
 
-:LegalPerson_6 a :LegalPerson ;
+websem:LegalPerson_6 a websem:LegalPerson ;
     foaf:name "LegalPerson6" .
 
-:LegalPerson_7 a :LegalPerson ;
+websem:LegalPerson_7 a websem:LegalPerson ;
     foaf:name "LegalPerson7" .
 
-:LegalPerson_8 a :LegalPerson ;
+websem:LegalPerson_8 a websem:LegalPerson ;
     foaf:name "LegalPerson8" .
 
-:LegalPerson_9 a :LegalPerson ;
+websem:LegalPerson_9 a websem:LegalPerson ;
     foaf:name "LegalPerson9" .
 
-:MACAddress a owl:DatatypeProperty ;
+websem:MACAddress a owl:DatatypeProperty ;
     rdfs:label "MAC-address"@en ;
-    rdfs:domain :NetworkEquipament ;
+    rdfs:domain websem:NetworkEquipament ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:Malicious_1 a :Malicious ;
+websem:Malicious_1 a websem:Malicious ;
     foaf:name "Malicious1" .
 
-:Malicious_10 a :Malicious ;
+websem:Malicious_10 a websem:Malicious ;
     foaf:name "Malicious10" .
 
-:Malicious_2 a :Malicious ;
+websem:Malicious_2 a websem:Malicious ;
     foaf:name "Malicious2" .
 
-:Malicious_3 a :Malicious ;
+websem:Malicious_3 a websem:Malicious ;
     foaf:name "Malicious3" .
 
-:Malicious_4 a :Malicious ;
+websem:Malicious_4 a websem:Malicious ;
     foaf:name "Malicious4" .
 
-:Malicious_5 a :Malicious ;
-    :attackParticipatedInMalicious :Attack_10 ;
+websem:Malicious_5 a websem:Malicious ;
+    websem:attackParticipatedInMalicious websem:Attack_10 ;
     foaf:name "Malicious5" .
 
-:Malicious_6 a :Malicious ;
+websem:Malicious_6 a websem:Malicious ;
     foaf:name "Malicious6" .
 
-:Malicious_7 a :Malicious ;
+websem:Malicious_7 a websem:Malicious ;
     foaf:name "Malicious7" .
 
-:Malicious_8 a :Malicious ;
+websem:Malicious_8 a websem:Malicious ;
     foaf:name "Malicious8" .
 
-:Malicious_9 a :Malicious ;
-    :attackParticipatedInMalicious :Attack_8 ;
+websem:Malicious_9 a websem:Malicious ;
+    websem:attackParticipatedInMalicious websem:Attack_8 ;
     foaf:name "Malicious9" .
 
-:Marca a owl:DatatypeProperty ;
+websem:Marca a owl:DatatypeProperty ;
     rdfs:label "Marca"@en ;
-    rdfs:domain :Computer ;
+    rdfs:domain websem:Computer ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:Modelo a owl:DatatypeProperty ;
+websem:Modelo a owl:DatatypeProperty ;
     rdfs:label "Modelo"@en ;
-    rdfs:domain :Computer ;
+    rdfs:domain websem:Computer ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:NaturalPerson_1 a :NaturalPerson ;
+websem:NaturalPerson_1 a websem:NaturalPerson ;
     foaf:name "NaturalPerson1" .
 
-:NaturalPerson_10 a :NaturalPerson ;
+websem:NaturalPerson_10 a websem:NaturalPerson ;
     foaf:name "NaturalPerson10" .
 
-:NaturalPerson_2 a :NaturalPerson ;
+websem:NaturalPerson_2 a websem:NaturalPerson ;
     foaf:name "NaturalPerson2" .
 
-:NaturalPerson_3 a :NaturalPerson ;
+websem:NaturalPerson_3 a websem:NaturalPerson ;
     foaf:name "NaturalPerson3" .
 
-:NaturalPerson_4 a :NaturalPerson ;
+websem:NaturalPerson_4 a websem:NaturalPerson ;
     foaf:name "NaturalPerson4" .
 
-:NaturalPerson_5 a :NaturalPerson ;
+websem:NaturalPerson_5 a websem:NaturalPerson ;
     foaf:name "NaturalPerson5" .
 
-:NaturalPerson_6 a :NaturalPerson ;
+websem:NaturalPerson_6 a websem:NaturalPerson ;
     foaf:name "NaturalPerson6" .
 
-:NaturalPerson_7 a :NaturalPerson ;
+websem:NaturalPerson_7 a websem:NaturalPerson ;
     foaf:name "NaturalPerson7" .
 
-:NaturalPerson_8 a :NaturalPerson ;
+websem:NaturalPerson_8 a websem:NaturalPerson ;
     foaf:name "NaturalPerson8" .
 
-:NaturalPerson_9 a :NaturalPerson ;
+websem:NaturalPerson_9 a websem:NaturalPerson ;
     foaf:name "NaturalPerson9" .
 
-:NetworkEquipament_1 a :NetworkEquipament ;
+websem:NetworkEquipament_1 a websem:NetworkEquipament ;
     foaf:name "NetworkEquipament1" .
 
-:NetworkEquipament_10 a :NetworkEquipament ;
+websem:NetworkEquipament_10 a websem:NetworkEquipament ;
     foaf:name "NetworkEquipament10" .
 
-:NetworkEquipament_2 a :NetworkEquipament ;
+websem:NetworkEquipament_2 a websem:NetworkEquipament ;
     foaf:name "NetworkEquipament2" .
 
-:NetworkEquipament_3 a :NetworkEquipament ;
+websem:NetworkEquipament_3 a websem:NetworkEquipament ;
     foaf:name "NetworkEquipament3" .
 
-:NetworkEquipament_4 a :NetworkEquipament ;
+websem:NetworkEquipament_4 a websem:NetworkEquipament ;
     foaf:name "NetworkEquipament4" .
 
-:NetworkEquipament_5 a :NetworkEquipament ;
+websem:NetworkEquipament_5 a websem:NetworkEquipament ;
     foaf:name "NetworkEquipament5" .
 
-:NetworkEquipament_6 a :NetworkEquipament ;
+websem:NetworkEquipament_6 a websem:NetworkEquipament ;
     foaf:name "NetworkEquipament6" .
 
-:NetworkEquipament_7 a :NetworkEquipament ;
+websem:NetworkEquipament_7 a websem:NetworkEquipament ;
     foaf:name "NetworkEquipament7" .
 
-:NetworkEquipament_8 a :NetworkEquipament ;
+websem:NetworkEquipament_8 a websem:NetworkEquipament ;
     foaf:name "NetworkEquipament8" .
 
-:NetworkEquipament_9 a :NetworkEquipament ;
+websem:NetworkEquipament_9 a websem:NetworkEquipament ;
     foaf:name "NetworkEquipament9" .
 
-:Nome a owl:DatatypeProperty ;
+websem:Nome a owl:DatatypeProperty ;
     rdfs:label "Nome"@en ;
-    rdfs:domain :TipoDeAtaque ;
+    rdfs:domain websem:TipoDeAtaque ;
     rdfs:range xsd:int ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:Nome_1 a owl:DatatypeProperty ;
+websem:Nome_1 a owl:DatatypeProperty ;
     rdfs:label "Nome"@en ;
-    rdfs:domain :Vulnerable ;
+    rdfs:domain websem:Vulnerable ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:Nome_2 a owl:DatatypeProperty ;
+websem:Nome_2 a owl:DatatypeProperty ;
     rdfs:label "Nome"@en ;
-    rdfs:domain :Software ;
+    rdfs:domain websem:Software ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:O5xXI0mDAACARCT rdfs:label ""@en .
+websem:O5xXI0mDAACARCT rdfs:label ""@en .
 
-:OwnershipAcquisition_1 a :OwnershipAcquisition ;
-    :tutoredMediatesOwnershipAcquisition :Tutored_9 ;
+websem:OwnershipAcquisition_1 a websem:OwnershipAcquisition ;
+    websem:tutoredMediatesOwnershipAcquisition websem:Tutored_9 ;
     foaf:name "OwnershipAcquisition1" .
 
-:OwnershipAcquisition_10 a :OwnershipAcquisition ;
-    :responsibleMediatesOwnershipAcquisition :Responsible_7 ;
+websem:OwnershipAcquisition_10 a websem:OwnershipAcquisition ;
+    websem:responsibleMediatesOwnershipAcquisition websem:Responsible_7 ;
     foaf:name "OwnershipAcquisition10" .
 
-:OwnershipAcquisition_2 a :OwnershipAcquisition ;
+websem:OwnershipAcquisition_2 a websem:OwnershipAcquisition ;
     foaf:name "OwnershipAcquisition2" .
 
-:OwnershipAcquisition_3 a :OwnershipAcquisition ;
+websem:OwnershipAcquisition_3 a websem:OwnershipAcquisition ;
     foaf:name "OwnershipAcquisition3" .
 
-:OwnershipAcquisition_4 a :OwnershipAcquisition ;
-    :tutoredMediatesOwnershipAcquisition :Tutored_9 ;
+websem:OwnershipAcquisition_4 a websem:OwnershipAcquisition ;
+    websem:tutoredMediatesOwnershipAcquisition websem:Tutored_9 ;
     foaf:name "OwnershipAcquisition4" .
 
-:OwnershipAcquisition_5 a :OwnershipAcquisition ;
+websem:OwnershipAcquisition_5 a websem:OwnershipAcquisition ;
     foaf:name "OwnershipAcquisition5" .
 
-:OwnershipAcquisition_6 a :OwnershipAcquisition ;
+websem:OwnershipAcquisition_6 a websem:OwnershipAcquisition ;
     foaf:name "OwnershipAcquisition6" .
 
-:OwnershipAcquisition_7 a :OwnershipAcquisition ;
+websem:OwnershipAcquisition_7 a websem:OwnershipAcquisition ;
     foaf:name "OwnershipAcquisition7" .
 
-:OwnershipAcquisition_8 a :OwnershipAcquisition ;
+websem:OwnershipAcquisition_8 a websem:OwnershipAcquisition ;
     foaf:name "OwnershipAcquisition8" .
 
-:OwnershipAcquisition_9 a :OwnershipAcquisition ;
-    :responsibleMediatesOwnershipAcquisition :Responsible_10 ;
+websem:OwnershipAcquisition_9 a websem:OwnershipAcquisition ;
+    websem:responsibleMediatesOwnershipAcquisition websem:Responsible_10 ;
     foaf:name "OwnershipAcquisition9" .
 
-:Person_1 a :Person ;
+websem:Person_1 a websem:Person ;
     foaf:name "Person1" .
 
-:Person_10 a :Person ;
+websem:Person_10 a websem:Person ;
     foaf:name "Person10" .
 
-:Person_2 a :Person ;
+websem:Person_2 a websem:Person ;
     foaf:name "Person2" .
 
-:Person_3 a :Person ;
+websem:Person_3 a websem:Person ;
     foaf:name "Person3" .
 
-:Person_4 a :Person ;
+websem:Person_4 a websem:Person ;
     foaf:name "Person4" .
 
-:Person_5 a :Person ;
+websem:Person_5 a websem:Person ;
     foaf:name "Person5" .
 
-:Person_6 a :Person ;
+websem:Person_6 a websem:Person ;
     foaf:name "Person6" .
 
-:Person_7 a :Person ;
+websem:Person_7 a websem:Person ;
     foaf:name "Person7" .
 
-:Person_8 a :Person ;
+websem:Person_8 a websem:Person ;
     foaf:name "Person8" .
 
-:Person_9 a :Person ;
+websem:Person_9 a websem:Person ;
     foaf:name "Person9" .
 
-:QK50I0mDAACAQvP rdfs:label ""@en .
+websem:QK50I0mDAACAQvP rdfs:label ""@en .
 
-:Qi8bI0mDAACAQ_E rdfs:label ""@en .
+websem:Qi8bI0mDAACAQ_E rdfs:label ""@en .
 
-:Relatorio a owl:DatatypeProperty ;
+websem:Relatorio a owl:DatatypeProperty ;
     rdfs:label "Relatorio"@en ;
-    rdfs:domain :Attacker ;
+    rdfs:domain websem:Attacker ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:Relatorio_1 a owl:DatatypeProperty ;
+websem:Relatorio_1 a owl:DatatypeProperty ;
     rdfs:label "Relatorio"@en ;
-    rdfs:domain :Attack ;
+    rdfs:domain websem:Attack ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:Responsible_1 a :Responsible ;
+websem:Responsible_1 a websem:Responsible ;
     foaf:name "Responsible1" .
 
-:Responsible_3 a :Responsible ;
+websem:Responsible_3 a websem:Responsible ;
     foaf:name "Responsible3" .
 
-:Responsible_4 a :Responsible ;
-    :tutoredHasResponsible :Tutored_2 ;
+websem:Responsible_4 a websem:Responsible ;
+    websem:tutoredHasResponsible websem:Tutored_2 ;
     foaf:name "Responsible4" .
 
-:Responsible_5 a :Responsible ;
+websem:Responsible_5 a websem:Responsible ;
     foaf:name "Responsible5" .
 
-:Responsible_6 a :Responsible ;
+websem:Responsible_6 a websem:Responsible ;
     foaf:name "Responsible6" .
 
-:Responsible_8 a :Responsible ;
+websem:Responsible_8 a websem:Responsible ;
     foaf:name "Responsible8" .
 
-:Responsible_9 a :Responsible ;
+websem:Responsible_9 a websem:Responsible ;
     foaf:name "Responsible9" .
 
-:Software_1 a :Software ;
+websem:Software_1 a websem:Software ;
     foaf:name "Software1" .
 
-:Software_10 a :Software ;
+websem:Software_10 a websem:Software ;
     foaf:name "Software10" .
 
-:Software_2 a :Software ;
+websem:Software_2 a websem:Software ;
     foaf:name "Software2" .
 
-:Software_3 a :Software ;
+websem:Software_3 a websem:Software ;
     foaf:name "Software3" .
 
-:Software_4 a :Software ;
+websem:Software_4 a websem:Software ;
     foaf:name "Software4" .
 
-:Software_5 a :Software ;
+websem:Software_5 a websem:Software ;
     foaf:name "Software5" .
 
-:Software_6 a :Software ;
+websem:Software_6 a websem:Software ;
     foaf:name "Software6" .
 
-:Software_7 a :Software ;
+websem:Software_7 a websem:Software ;
     foaf:name "Software7" .
 
-:Software_8 a :Software ;
+websem:Software_8 a websem:Software ;
     foaf:name "Software8" .
 
-:Software_9 a :Software ;
+websem:Software_9 a websem:Software ;
     foaf:name "Software9" .
 
-:Target_1 a :Target ;
+websem:Target_1 a websem:Target ;
     foaf:name "Target1" .
 
-:Target_10 a :Target ;
+websem:Target_10 a websem:Target ;
     foaf:name "Target10" .
 
-:Target_2 a :Target ;
+websem:Target_2 a websem:Target ;
     foaf:name "Target2" .
 
-:Target_3 a :Target ;
+websem:Target_3 a websem:Target ;
     foaf:name "Target3" .
 
-:Target_4 a :Target ;
+websem:Target_4 a websem:Target ;
     foaf:name "Target4" .
 
-:Target_5 a :Target ;
+websem:Target_5 a websem:Target ;
     foaf:name "Target5" .
 
-:Target_6 a :Target ;
-    :attackParticipatedInTarget :Attack_6,
-        :Attack_9 ;
+websem:Target_6 a websem:Target ;
+    websem:attackParticipatedInTarget websem:Attack_6,
+        websem:Attack_9 ;
     foaf:name "Target6" .
 
-:Target_7 a :Target ;
+websem:Target_7 a websem:Target ;
     foaf:name "Target7" .
 
-:Target_8 a :Target ;
+websem:Target_8 a websem:Target ;
     foaf:name "Target8" .
 
-:Target_9 a :Target ;
+websem:Target_9 a websem:Target ;
     foaf:name "Target9" .
 
-:Tipo a owl:DatatypeProperty ;
+websem:Tipo a owl:DatatypeProperty ;
     rdfs:label "Tipo"@en ;
-    rdfs:domain :Damage ;
+    rdfs:domain websem:Damage ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:TipoDeAtaque_1 a :TipoDeAtaque ;
-    :Detalha :Attack_8 ;
+websem:TipoDeAtaque_1 a websem:TipoDeAtaque ;
+    websem:Detalha websem:Attack_8 ;
     foaf:name "TipoDeAtaque1" .
 
-:TipoDeAtaque_10 a :TipoDeAtaque ;
+websem:TipoDeAtaque_10 a websem:TipoDeAtaque ;
     foaf:name "TipoDeAtaque10" .
 
-:TipoDeAtaque_2 a :TipoDeAtaque ;
+websem:TipoDeAtaque_2 a websem:TipoDeAtaque ;
     foaf:name "TipoDeAtaque2" .
 
-:TipoDeAtaque_4 a :TipoDeAtaque ;
+websem:TipoDeAtaque_4 a websem:TipoDeAtaque ;
     foaf:name "TipoDeAtaque4" .
 
-:TipoDeAtaque_6 a :TipoDeAtaque ;
+websem:TipoDeAtaque_6 a websem:TipoDeAtaque ;
     foaf:name "TipoDeAtaque6" .
 
-:TipoDeAtaque_7 a :TipoDeAtaque ;
-    :Detalha :Attack_4 ;
+websem:TipoDeAtaque_7 a websem:TipoDeAtaque ;
+    websem:Detalha websem:Attack_4 ;
     foaf:name "TipoDeAtaque7" .
 
-:TipoDeAtaque_8 a :TipoDeAtaque ;
+websem:TipoDeAtaque_8 a websem:TipoDeAtaque ;
     foaf:name "TipoDeAtaque8" .
 
-:TipoDeAtaque_9 a :TipoDeAtaque ;
+websem:TipoDeAtaque_9 a websem:TipoDeAtaque ;
     foaf:name "TipoDeAtaque9" .
 
-:Tutored_1 a :Tutored ;
+websem:Tutored_1 a websem:Tutored ;
     foaf:name "Tutored1" .
 
-:Tutored_10 a :Tutored ;
+websem:Tutored_10 a websem:Tutored ;
     foaf:name "Tutored10" .
 
-:Tutored_3 a :Tutored ;
+websem:Tutored_3 a websem:Tutored ;
     foaf:name "Tutored3" .
 
-:Tutored_4 a :Tutored ;
-    :hasOwnership :Responsible_7 ;
+websem:Tutored_4 a websem:Tutored ;
+    websem:hasOwnership websem:Responsible_7 ;
     foaf:name "Tutored4" .
 
-:Tutored_5 a :Tutored ;
-    :hasOwnership :Responsible_2 ;
+websem:Tutored_5 a websem:Tutored ;
+    websem:hasOwnership websem:Responsible_2 ;
     foaf:name "Tutored5" .
 
-:Tutored_7 a :Tutored ;
+websem:Tutored_7 a websem:Tutored ;
     foaf:name "Tutored7" .
 
-:Tutored_8 a :Tutored ;
+websem:Tutored_8 a websem:Tutored ;
     foaf:name "Tutored8" .
 
-:UnauthorizedResult_1 a :UnauthorizedResult ;
-    :Ocorreu :InformationAsset_8 ;
+websem:UnauthorizedResult_1 a websem:UnauthorizedResult ;
+    websem:Ocorreu websem:InformationAsset_8 ;
     foaf:name "UnauthorizedResult1" .
 
-:UnauthorizedResult_2 a :UnauthorizedResult ;
-    :obtainsIn :AttackMoment_3 ;
+websem:UnauthorizedResult_2 a websem:UnauthorizedResult ;
+    websem:obtainsIn websem:AttackMoment_3 ;
     foaf:name "UnauthorizedResult2" .
 
-:UnauthorizedResult_3 a :UnauthorizedResult ;
-    :Causado :Attack_10,
-        :Attack_5 ;
+websem:UnauthorizedResult_3 a websem:UnauthorizedResult ;
+    websem:Causado websem:Attack_10,
+        websem:Attack_5 ;
     foaf:name "UnauthorizedResult3" .
 
-:UnauthorizedResult_4 a :UnauthorizedResult ;
+websem:UnauthorizedResult_4 a websem:UnauthorizedResult ;
     foaf:name "UnauthorizedResult4" .
 
-:UnauthorizedResult_8 a :UnauthorizedResult ;
-    :Ocorreu :InformationAsset_1 ;
+websem:UnauthorizedResult_8 a websem:UnauthorizedResult ;
+    websem:Ocorreu websem:InformationAsset_1 ;
     foaf:name "UnauthorizedResult8" .
 
-:UnauthorizedResult_9 a :UnauthorizedResult ;
+websem:UnauthorizedResult_9 a websem:UnauthorizedResult ;
     foaf:name "UnauthorizedResult9" .
 
-:Versao a owl:DatatypeProperty ;
+websem:Versao a owl:DatatypeProperty ;
     rdfs:label "Versao"@en ;
-    rdfs:domain :Software ;
+    rdfs:domain websem:Software ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:Victim_1 a :Victim ;
+websem:Victim_1 a websem:Victim ;
     foaf:name "Victim1" .
 
-:Victim_10 a :Victim ;
+websem:Victim_10 a websem:Victim ;
     foaf:name "Victim10" .
 
-:Victim_2 a :Victim ;
+websem:Victim_2 a websem:Victim ;
     foaf:name "Victim2" .
 
-:Victim_3 a :Victim ;
-    :incidentParticipatedInVictim :Incident_5 ;
+websem:Victim_3 a websem:Victim ;
+    websem:incidentParticipatedInVictim websem:Incident_5 ;
     foaf:name "Victim3" .
 
-:Victim_5 a :Victim ;
+websem:Victim_5 a websem:Victim ;
     foaf:name "Victim5" .
 
-:Victim_7 a :Victim ;
-    :incidentParticipatedInVictim :Incident_5 ;
+websem:Victim_7 a websem:Victim ;
+    websem:incidentParticipatedInVictim websem:Incident_5 ;
     foaf:name "Victim7" .
 
-:Victim_8 a :Victim ;
-    :presentIn :Damage_3,
-        :Damage_4 ;
+websem:Victim_8 a websem:Victim ;
+    websem:presentIn websem:Damage_3,
+        websem:Damage_4 ;
     foaf:name "Victim8" .
 
-:Victim_9 a :Victim ;
+websem:Victim_9 a websem:Victim ;
     foaf:name "Victim9" .
 
-:Vulnerable_1 a :Vulnerable ;
+websem:Vulnerable_1 a websem:Vulnerable ;
     foaf:name "Vulnerable1" .
 
-:Vulnerable_10 a :Vulnerable ;
-    :Explora :Attack_7 ;
+websem:Vulnerable_10 a websem:Vulnerable ;
+    websem:Explora websem:Attack_7 ;
     foaf:name "Vulnerable10" .
 
-:Vulnerable_2 a :Vulnerable ;
+websem:Vulnerable_2 a websem:Vulnerable ;
     foaf:name "Vulnerable2" .
 
-:Vulnerable_5 a :Vulnerable ;
+websem:Vulnerable_5 a websem:Vulnerable ;
     foaf:name "Vulnerable5" .
 
-:Vulnerable_6 a :Vulnerable ;
-    :Possui :InformationAsset_7 ;
+websem:Vulnerable_6 a websem:Vulnerable ;
+    websem:Possui websem:InformationAsset_7 ;
     foaf:name "Vulnerable6" .
 
-:Vulnerable_7 a :Vulnerable ;
-    :Possui :InformationAsset_2 ;
+websem:Vulnerable_7 a websem:Vulnerable ;
+    websem:Possui websem:InformationAsset_2 ;
     foaf:name "Vulnerable7" .
 
-:_EeEI0mDAACAQrU rdfs:label ""@en .
+websem:_EeEI0mDAACAQrU rdfs:label ""@en .
 
-:a0XlgMmDAACARIt rdfs:label ""@en .
+websem:a0XlgMmDAACARIt rdfs:label ""@en .
 
-:chYI0mDAACAQqN rdfs:label ""@en .
+websem:chYI0mDAACAQqN rdfs:label ""@en .
 
-:datetime a owl:DatatypeProperty ;
+websem:datetime a owl:DatatypeProperty ;
     rdfs:label "datetime"@en ;
-    rdfs:domain :AttackMoment ;
+    rdfs:domain websem:AttackMoment ;
     rdfs:subPropertyOf gufo:hasValueComponent .
 
-:datetime_1 a owl:DatatypeProperty ;
+websem:datetime_1 a owl:DatatypeProperty ;
     rdfs:label "datetime"@en ;
-    rdfs:domain :IncidentMoment ;
+    rdfs:domain websem:IncidentMoment ;
     rdfs:subPropertyOf gufo:hasValueComponent .
 
-:description a owl:DatatypeProperty ;
+websem:description a owl:DatatypeProperty ;
     rdfs:label "description"@en ;
-    rdfs:domain :UnauthorizedResult ;
+    rdfs:domain websem:UnauthorizedResult ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:dxM8I0mDAACAQ2g rdfs:label ""@en .
+websem:dxM8I0mDAACAQ2g rdfs:label ""@en .
 
-:hasOwnership a gufo:MaterialRelationshipType,
+websem:hasOwnership a gufo:MaterialRelationshipType,
         owl:ObjectProperty ;
     rdfs:label "has ownership"@en ;
-    rdfs:domain :Tutored ;
-    rdfs:range :Responsible .
+    rdfs:domain websem:Tutored ;
+    rdfs:range websem:Responsible .
 
-:iscI0mDAACAQ0H rdfs:label ""@en .
+websem:iscI0mDAACAQ0H rdfs:label ""@en .
 
-:nY3cI0mDAACAQ1i rdfs:label ""@en .
+websem:nY3cI0mDAACAQ1i rdfs:label ""@en .
 
-:name a owl:DatatypeProperty ;
+websem:name a owl:DatatypeProperty ;
     rdfs:label "name"@en ;
-    rdfs:domain :Person ;
+    rdfs:domain websem:Person ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf gufo:hasQualityValue .
 
-:tutoredHasResponsible a gufo:MaterialRelationshipType,
+websem:tutoredHasResponsible a gufo:MaterialRelationshipType,
         owl:ObjectProperty ;
-    rdfs:domain :Responsible ;
-    rdfs:range :Tutored .
+    rdfs:domain websem:Responsible ;
+    rdfs:range websem:Tutored .
 
-:Atinge a owl:ObjectProperty ;
+websem:Atinge a owl:ObjectProperty ;
     rdfs:label "Atinge"@en ;
-    rdfs:domain :Damage ;
-    rdfs:range :Victim ;
+    rdfs:domain websem:Damage ;
+    rdfs:range websem:Victim ;
     rdfs:subPropertyOf <gufoi:bears> .
 
-:Atrai a owl:ObjectProperty ;
-    rdfs:domain :Attack ;
-    rdfs:range :Vulnerable ;
+websem:Atrai a owl:ObjectProperty ;
+    rdfs:domain websem:Attack ;
+    rdfs:range websem:Vulnerable ;
     rdfs:subPropertyOf gufo:contributedToTrigger .
 
-:AttackMoment_3 a :AttackMoment ;
-    :unauthorizedResultHistoricallyDependsOnAttackMoment :UnauthorizedResult_7 ;
+websem:AttackMoment_3 a websem:AttackMoment ;
+    websem:unauthorizedResultHistoricallyDependsOnAttackMoment websem:UnauthorizedResult_7 ;
     foaf:name "AttackMoment3" .
 
-:AttackMoment_4 a :AttackMoment ;
+websem:AttackMoment_4 a websem:AttackMoment ;
     foaf:name "AttackMoment4" .
 
-:AttackMoment_7 a :AttackMoment ;
+websem:AttackMoment_7 a websem:AttackMoment ;
     foaf:name "AttackMoment7" .
 
-:AttackMoment_9 a :AttackMoment ;
+websem:AttackMoment_9 a websem:AttackMoment ;
     foaf:name "AttackMoment9" .
 
-:Attack_1 a :Attack ;
-    :Compoe :Incident_4 ;
-    :Gera :UnauthorizedResult_5 ;
+websem:Attack_1 a websem:Attack ;
+    websem:Compoe websem:Incident_4 ;
+    websem:Gera websem:UnauthorizedResult_5 ;
     foaf:name "Attack1" .
 
-:Attack_2 a :Attack ;
+websem:Attack_2 a websem:Attack ;
     foaf:name "Attack2" .
 
-:Attack_4 a :Attack ;
-    :Atrai :Vulnerable_4 ;
-    :Compoe :Incident_10 ;
-    :endsAt :AttackMoment_9 ;
+websem:Attack_4 a websem:Attack ;
+    websem:Atrai websem:Vulnerable_4 ;
+    websem:Compoe websem:Incident_10 ;
+    websem:endsAt websem:AttackMoment_9 ;
     foaf:name "Attack4" .
 
-:Attack_5 a :Attack ;
-    :Gera :UnauthorizedResult_10 ;
-    :beginsAt :AttackMoment_4 ;
+websem:Attack_5 a websem:Attack ;
+    websem:Gera websem:UnauthorizedResult_10 ;
+    websem:beginsAt websem:AttackMoment_4 ;
     foaf:name "Attack5" .
 
-:Attack_6 a :Attack ;
+websem:Attack_6 a websem:Attack ;
     foaf:name "Attack6" .
 
-:Causa a owl:ObjectProperty ;
-    rdfs:domain :Incident ;
-    rdfs:range :Damage ;
+websem:Causa a owl:ObjectProperty ;
+    rdfs:domain websem:Incident ;
+    rdfs:range websem:Damage ;
     rdfs:subPropertyOf gufo:broughtAbout .
 
-:Causado a owl:ObjectProperty ;
+websem:Causado a owl:ObjectProperty ;
     rdfs:label "Causado"@en ;
-    rdfs:domain :UnauthorizedResult ;
-    rdfs:range :Attack ;
+    rdfs:domain websem:UnauthorizedResult ;
+    rdfs:range websem:Attack ;
     rdfs:subPropertyOf <gufoi:wasBroughtAboutBy> .
 
-:Compoe a owl:ObjectProperty ;
+websem:Compoe a owl:ObjectProperty ;
     rdfs:label "Compoe"@en ;
-    rdfs:domain :Attack ;
-    rdfs:range :Incident ;
+    rdfs:domain websem:Attack ;
+    rdfs:range websem:Incident ;
     rdfs:subPropertyOf <gufoi:hasEventProperPart> .
 
-:Damage_10 a :Damage ;
-    :obtainsIn_1 :IncidentMoment_10,
-        :IncidentMoment_2 ;
+websem:Damage_10 a websem:Damage ;
+    websem:obtainsIn_1 websem:IncidentMoment_10,
+        websem:IncidentMoment_2 ;
     foaf:name "Damage10" .
 
-:Damage_3 a :Damage ;
-    :Consequencia :Incident_10 ;
+websem:Damage_3 a websem:Damage ;
+    websem:Consequencia websem:Incident_10 ;
     foaf:name "Damage3" .
 
-:Damage_8 a :Damage ;
+websem:Damage_8 a websem:Damage ;
     foaf:name "Damage8" .
 
-:Gera a owl:ObjectProperty ;
-    rdfs:domain :Attack ;
-    rdfs:range :UnauthorizedResult ;
+websem:Gera a owl:ObjectProperty ;
+    rdfs:domain websem:Attack ;
+    rdfs:range websem:UnauthorizedResult ;
     rdfs:subPropertyOf gufo:broughtAbout .
 
-:IncidentMoment_10 a :IncidentMoment ;
-    :incidentInheresInIncidentMoment :Incident_8 ;
+websem:IncidentMoment_10 a websem:IncidentMoment ;
+    websem:incidentInheresInIncidentMoment websem:Incident_8 ;
     foaf:name "IncidentMoment10" .
 
-:IncidentMoment_2 a :IncidentMoment ;
-    :incidentInheresInIncidentMoment :Incident_3 ;
+websem:IncidentMoment_2 a websem:IncidentMoment ;
+    websem:incidentInheresInIncidentMoment websem:Incident_3 ;
     foaf:name "IncidentMoment2" .
 
-:IncidentMoment_3 a :IncidentMoment ;
+websem:IncidentMoment_3 a websem:IncidentMoment ;
     foaf:name "IncidentMoment3" .
 
-:IncidentMoment_5 a :IncidentMoment ;
+websem:IncidentMoment_5 a websem:IncidentMoment ;
     foaf:name "IncidentMoment5" .
 
-:Incident_1 a :Incident ;
-    :hasPart :Attack_1 ;
+websem:Incident_1 a websem:Incident ;
+    websem:hasPart websem:Attack_1 ;
     foaf:name "Incident1" .
 
-:Incident_3 a :Incident ;
-    :beginsAt_1 :IncidentMoment_6 ;
+websem:Incident_3 a websem:Incident ;
+    websem:beginsAt_1 websem:IncidentMoment_6 ;
     foaf:name "Incident3" .
 
-:Incident_4 a :Incident ;
+websem:Incident_4 a websem:Incident ;
     foaf:name "Incident4" .
 
-:InformationAsset_1 a :InformationAsset ;
+websem:InformationAsset_1 a websem:InformationAsset ;
     foaf:name "InformationAsset1" .
 
-:InformationAsset_2 a :InformationAsset ;
+websem:InformationAsset_2 a websem:InformationAsset ;
     foaf:name "InformationAsset2" .
 
-:InformationAsset_7 a :InformationAsset ;
+websem:InformationAsset_7 a websem:InformationAsset ;
     foaf:name "InformationAsset7" .
 
-:InformationAsset_8 a :InformationAsset ;
-    :presentIn_2 :Vulnerable_8,
-        :Vulnerable_9 ;
+websem:InformationAsset_8 a websem:InformationAsset ;
+    websem:presentIn_2 websem:Vulnerable_8,
+        websem:Vulnerable_9 ;
     foaf:name "InformationAsset8" .
 
-:Ocorreu a owl:ObjectProperty ;
+websem:Ocorreu a owl:ObjectProperty ;
     rdfs:label "Ocorreu"@en ;
-    rdfs:domain :UnauthorizedResult ;
-    rdfs:range :InformationAsset ;
+    rdfs:domain websem:UnauthorizedResult ;
+    rdfs:range websem:InformationAsset ;
     rdfs:subPropertyOf <gufoi:bears> .
 
-:Possui a owl:ObjectProperty ;
+websem:Possui a owl:ObjectProperty ;
     rdfs:label "Possui"@en ;
-    rdfs:domain :Vulnerable ;
-    rdfs:range :InformationAsset ;
+    rdfs:domain websem:Vulnerable ;
+    rdfs:range websem:InformationAsset ;
     rdfs:subPropertyOf <gufoi:bears> .
 
-:Responsible_10 a :Responsible ;
+websem:Responsible_10 a websem:Responsible ;
     foaf:name "Responsible10" .
 
-:Responsible_2 a :Responsible ;
-    :tutoredHasResponsible :Tutored_6 ;
+websem:Responsible_2 a websem:Responsible ;
+    websem:tutoredHasResponsible websem:Tutored_6 ;
     foaf:name "Responsible2" .
 
-:TipoDeAtaque_3 a :TipoDeAtaque ;
+websem:TipoDeAtaque_3 a websem:TipoDeAtaque ;
     foaf:name "TipoDeAtaque3" .
 
-:TipoDeAtaque_5 a :TipoDeAtaque ;
+websem:TipoDeAtaque_5 a websem:TipoDeAtaque ;
     foaf:name "TipoDeAtaque5" .
 
-:Tutored_2 a :Tutored ;
+websem:Tutored_2 a websem:Tutored ;
     foaf:name "Tutored2" .
 
-:Tutored_6 a :Tutored ;
+websem:Tutored_6 a websem:Tutored ;
     foaf:name "Tutored6" .
 
-:UnauthorizedResult_10 a :UnauthorizedResult ;
+websem:UnauthorizedResult_10 a websem:UnauthorizedResult ;
     foaf:name "UnauthorizedResult10" .
 
-:UnauthorizedResult_6 a :UnauthorizedResult ;
-    :obtainsIn :AttackMoment_5 ;
+websem:UnauthorizedResult_6 a websem:UnauthorizedResult ;
+    websem:obtainsIn websem:AttackMoment_5 ;
     foaf:name "UnauthorizedResult6" .
 
-:Victim_4 a :Victim ;
+websem:Victim_4 a websem:Victim ;
     foaf:name "Victim4" .
 
-:Victim_6 a :Victim ;
+websem:Victim_6 a websem:Victim ;
     foaf:name "Victim6" .
 
-:Vulnerable_3 a :Vulnerable ;
+websem:Vulnerable_3 a websem:Vulnerable ;
     foaf:name "Vulnerable3" .
 
-:Vulnerable_4 a :Vulnerable ;
+websem:Vulnerable_4 a websem:Vulnerable ;
     foaf:name "Vulnerable4" .
 
-:Vulnerable_8 a :Vulnerable ;
-    :Explora :Attack_2 ;
+websem:Vulnerable_8 a websem:Vulnerable ;
+    websem:Explora websem:Attack_2 ;
     foaf:name "Vulnerable8" .
 
-:Vulnerable_9 a :Vulnerable ;
+websem:Vulnerable_9 a websem:Vulnerable ;
     foaf:name "Vulnerable9" .
 
-:beginsAt a owl:ObjectProperty ;
+websem:beginsAt a owl:ObjectProperty ;
     rdfs:label "begins at"@en ;
-    rdfs:domain :Attack ;
-    rdfs:range :AttackMoment ;
+    rdfs:domain websem:Attack ;
+    rdfs:range websem:AttackMoment ;
     rdfs:subPropertyOf gufo:inheresIn .
 
-:beginsAt_1 a owl:ObjectProperty ;
+websem:beginsAt_1 a owl:ObjectProperty ;
     rdfs:label "begins at"@en ;
-    rdfs:domain :Incident ;
-    rdfs:range :IncidentMoment ;
+    rdfs:domain websem:Incident ;
+    rdfs:range websem:IncidentMoment ;
     rdfs:subPropertyOf gufo:inheresIn .
 
-:damageHistoricallyDependsOnIncidentMoment a owl:ObjectProperty ;
-    rdfs:domain :IncidentMoment ;
-    rdfs:range :Damage ;
+websem:damageHistoricallyDependsOnIncidentMoment a owl:ObjectProperty ;
+    rdfs:domain websem:IncidentMoment ;
+    rdfs:range websem:Damage ;
     rdfs:subPropertyOf <gufoi:hasHistoricalDependee> .
 
-:endsAt a owl:ObjectProperty ;
+websem:endsAt a owl:ObjectProperty ;
     rdfs:label "ends at"@en ;
-    rdfs:domain :Attack ;
-    rdfs:range :AttackMoment ;
+    rdfs:domain websem:Attack ;
+    rdfs:range websem:AttackMoment ;
     rdfs:subPropertyOf gufo:inheresIn .
 
-:endsAt_1 a owl:ObjectProperty ;
+websem:endsAt_1 a owl:ObjectProperty ;
     rdfs:label "ends at"@en ;
-    rdfs:domain :Incident ;
-    rdfs:range :IncidentMoment ;
+    rdfs:domain websem:Incident ;
+    rdfs:range websem:IncidentMoment ;
     rdfs:subPropertyOf gufo:inheresIn .
 
-:hasPart a owl:ObjectProperty ;
+websem:hasPart a owl:ObjectProperty ;
     rdfs:label "hasPart"@en ;
-    rdfs:domain :Incident ;
-    rdfs:range :Attack ;
+    rdfs:domain websem:Incident ;
+    rdfs:range websem:Attack ;
     rdfs:subPropertyOf gufo:isEventProperPartOf .
 
-:incidentParticipatedInAttacker a owl:ObjectProperty ;
-    rdfs:domain :Attacker,
-        :Incident ;
-    rdfs:range :Attacker,
-        :Incident ;
+websem:incidentParticipatedInAttacker a owl:ObjectProperty ;
+    rdfs:domain websem:Attacker,
+        websem:Incident ;
+    rdfs:range websem:Attacker,
+        websem:Incident ;
     rdfs:subPropertyOf <gufoi:hadParticipant>,
         gufo:participatedIn .
 
-:incidentParticipatedInVictim a owl:ObjectProperty ;
+websem:incidentParticipatedInVictim a owl:ObjectProperty ;
     rdfs:label ""@en ;
-    rdfs:domain :Incident,
-        :Victim ;
-    rdfs:range :Incident,
-        :Victim ;
+    rdfs:domain websem:Incident,
+        websem:Victim ;
+    rdfs:range websem:Incident,
+        websem:Victim ;
     rdfs:subPropertyOf <gufoi:hadParticipant>,
         gufo:participatedIn .
 
-:obtainsIn a owl:ObjectProperty ;
+websem:obtainsIn a owl:ObjectProperty ;
     rdfs:label "obtainsIn"@en ;
-    rdfs:domain :UnauthorizedResult ;
-    rdfs:range :AttackMoment ;
+    rdfs:domain websem:UnauthorizedResult ;
+    rdfs:range websem:AttackMoment ;
     rdfs:subPropertyOf gufo:historicallyDependsOn .
 
-:obtainsIn_1 a owl:ObjectProperty ;
+websem:obtainsIn_1 a owl:ObjectProperty ;
     rdfs:label "obtainsIn"@en ;
-    rdfs:domain :Damage ;
-    rdfs:range :IncidentMoment ;
+    rdfs:domain websem:Damage ;
+    rdfs:range websem:IncidentMoment ;
     rdfs:subPropertyOf gufo:historicallyDependsOn .
 
-:presentIn a owl:ObjectProperty ;
+websem:presentIn a owl:ObjectProperty ;
     rdfs:label "present in"@en ;
-    rdfs:domain :Victim ;
-    rdfs:range :Damage ;
+    rdfs:domain websem:Victim ;
+    rdfs:range websem:Damage ;
     rdfs:subPropertyOf gufo:inheresIn .
 
-:presentIn_1 a owl:ObjectProperty ;
+websem:presentIn_1 a owl:ObjectProperty ;
     rdfs:label "present in"@en ;
-    rdfs:domain :InformationAsset ;
-    rdfs:range :UnauthorizedResult ;
+    rdfs:domain websem:InformationAsset ;
+    rdfs:range websem:UnauthorizedResult ;
     rdfs:subPropertyOf gufo:inheresIn .
 
-:presentIn_2 a owl:ObjectProperty ;
+websem:presentIn_2 a owl:ObjectProperty ;
     rdfs:label "present in"@en ;
-    rdfs:domain :InformationAsset ;
-    rdfs:range :Vulnerable ;
+    rdfs:domain websem:InformationAsset ;
+    rdfs:range websem:Vulnerable ;
     rdfs:subPropertyOf gufo:inheresIn .
 
-:unauthorizedResultHistoricallyDependsOnAttackMoment a owl:ObjectProperty ;
-    rdfs:domain :AttackMoment ;
-    rdfs:range :UnauthorizedResult ;
+websem:unauthorizedResultHistoricallyDependsOnAttackMoment a owl:ObjectProperty ;
+    rdfs:domain websem:AttackMoment ;
+    rdfs:range websem:UnauthorizedResult ;
     rdfs:subPropertyOf <gufoi:hasHistoricalDependee> .
 
-:AttackMoment_5 a :AttackMoment ;
+websem:AttackMoment_5 a websem:AttackMoment ;
     foaf:name "AttackMoment5" .
 
-:Attack_7 a :Attack ;
-    :beginsAt :AttackMoment_7 ;
+websem:Attack_7 a websem:Attack ;
+    websem:beginsAt websem:AttackMoment_7 ;
     foaf:name "Attack7" .
 
-:Attack_8 a :Attack ;
-    :Classifica :TipoDeAtaque_5 ;
+websem:Attack_8 a websem:Attack ;
+    websem:Classifica websem:TipoDeAtaque_5 ;
     foaf:name "Attack8" .
 
-:Attack_9 a :Attack ;
-    :Atrai :Vulnerable_3 ;
-    :endsAt :AttackMoment_5 ;
+websem:Attack_9 a websem:Attack ;
+    websem:Atrai websem:Vulnerable_3 ;
+    websem:endsAt websem:AttackMoment_5 ;
     foaf:name "Attack9" .
 
-:IncidentMoment_6 a :IncidentMoment ;
-    :damageHistoricallyDependsOnIncidentMoment :Damage_4 ;
+websem:IncidentMoment_6 a websem:IncidentMoment ;
+    websem:damageHistoricallyDependsOnIncidentMoment websem:Damage_4 ;
     foaf:name "IncidentMoment6" .
 
-:Incident_5 a :Incident ;
+websem:Incident_5 a websem:Incident ;
     foaf:name "Incident5" .
 
-:Incident_8 a :Incident ;
-    :Causa :Damage_8 ;
-    :endsAt_1 :IncidentMoment_5 ;
+websem:Incident_8 a websem:Incident ;
+    websem:Causa websem:Damage_8 ;
+    websem:endsAt_1 websem:IncidentMoment_5 ;
     foaf:name "Incident8" .
 
-:Responsible_7 a :Responsible ;
+websem:Responsible_7 a websem:Responsible ;
     foaf:name "Responsible7" .
 
-:Tutored_9 a :Tutored ;
+websem:Tutored_9 a websem:Tutored ;
     foaf:name "Tutored9" .
 
-:UnauthorizedResult_5 a :UnauthorizedResult ;
+websem:UnauthorizedResult_5 a websem:UnauthorizedResult ;
     foaf:name "UnauthorizedResult5" .
 
-:UnauthorizedResult_7 a :UnauthorizedResult ;
+websem:UnauthorizedResult_7 a websem:UnauthorizedResult ;
     foaf:name "UnauthorizedResult7" .
 
-:attackInheresInAttackMoment a owl:ObjectProperty ;
-    rdfs:domain :AttackMoment ;
-    rdfs:range :Attack ;
+websem:attackInheresInAttackMoment a owl:ObjectProperty ;
+    rdfs:domain websem:AttackMoment ;
+    rdfs:range websem:Attack ;
     rdfs:subPropertyOf <gufoi:bears> .
 
-:attackParticipatedInMalicious a owl:ObjectProperty ;
+websem:attackParticipatedInMalicious a owl:ObjectProperty ;
     rdfs:label ""@en ;
-    rdfs:domain :Attack,
-        :Malicious ;
-    rdfs:range :Attack,
-        :Malicious ;
+    rdfs:domain websem:Attack,
+        websem:Malicious ;
+    rdfs:range websem:Attack,
+        websem:Malicious ;
     rdfs:subPropertyOf <gufoi:hadParticipant>,
         gufo:participatedIn .
 
-:attackParticipatedInTarget a owl:ObjectProperty ;
+websem:attackParticipatedInTarget a owl:ObjectProperty ;
     rdfs:label ""@en ;
-    rdfs:domain :Attack,
-        :Target ;
-    rdfs:range :Attack,
-        :Target ;
+    rdfs:domain websem:Attack,
+        websem:Target ;
+    rdfs:range websem:Attack,
+        websem:Target ;
     rdfs:subPropertyOf <gufoi:hadParticipant>,
         gufo:participatedIn .
 
-:incidentInheresInIncidentMoment a owl:ObjectProperty ;
-    rdfs:domain :IncidentMoment ;
-    rdfs:range :Incident ;
+websem:incidentInheresInIncidentMoment a owl:ObjectProperty ;
+    rdfs:domain websem:IncidentMoment ;
+    rdfs:range websem:Incident ;
     rdfs:subPropertyOf <gufoi:bears> .
 
-:responsibleMediatesOwnershipAcquisition a owl:ObjectProperty ;
-    rdfs:domain :OwnershipAcquisition,
-        :Responsible ;
-    rdfs:range :OwnershipAcquisition,
-        :Responsible ;
+websem:responsibleMediatesOwnershipAcquisition a owl:ObjectProperty ;
+    rdfs:domain websem:OwnershipAcquisition,
+        websem:Responsible ;
+    rdfs:range websem:OwnershipAcquisition,
+        websem:Responsible ;
     rdfs:subPropertyOf <gufoi:isMediatedBy>,
         gufo:mediates .
 
-:tutoredMediatesOwnershipAcquisition a owl:ObjectProperty ;
-    rdfs:domain :OwnershipAcquisition,
-        :Tutored ;
-    rdfs:range :OwnershipAcquisition,
-        :Tutored ;
+websem:tutoredMediatesOwnershipAcquisition a owl:ObjectProperty ;
+    rdfs:domain websem:OwnershipAcquisition,
+        websem:Tutored ;
+    rdfs:range websem:OwnershipAcquisition,
+        websem:Tutored ;
     rdfs:subPropertyOf <gufoi:isMediatedBy>,
         gufo:mediates .
 
-:Attack_10 a :Attack ;
-    :Classifica :TipoDeAtaque_3 ;
+websem:Attack_10 a websem:Attack ;
+    websem:Classifica websem:TipoDeAtaque_3 ;
     foaf:name "Attack10" .
 
-:Damage_4 a :Damage ;
+websem:Damage_4 a websem:Damage ;
     foaf:name "Damage4" .
 
-:Incident_10 a :Incident ;
-    :Causa :Damage_10 ;
+websem:Incident_10 a websem:Incident ;
+    websem:Causa websem:Damage_10 ;
     foaf:name "Incident10" .
 
-:LegalPerson a gufo:SubKind,
+websem:LegalPerson a gufo:SubKind,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Legal Person"@en ;
-    rdfs:subClassOf :Person .
+    rdfs:subClassOf websem:Person .
 
-:NaturalPerson a gufo:SubKind,
+websem:NaturalPerson a gufo:SubKind,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Natural Person"@en ;
-    rdfs:subClassOf :Person .
+    rdfs:subClassOf websem:Person .
 
-:Computer a gufo:Kind,
+websem:Computer a gufo:Kind,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Computer"@en ;
-    rdfs:subClassOf :InformationAsset,
+    rdfs:subClassOf websem:InformationAsset,
         gufo:FunctionalComplex .
 
-:NetworkEquipament a gufo:Kind,
+websem:NetworkEquipament a gufo:Kind,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Network Equipament"@en ;
-    rdfs:subClassOf :InformationAsset,
+    rdfs:subClassOf websem:InformationAsset,
         gufo:FunctionalComplex .
 
-:Software a gufo:Kind,
+websem:Software a gufo:Kind,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Software"@en ;
-    rdfs:subClassOf :InformationAsset,
+    rdfs:subClassOf websem:InformationAsset,
         gufo:FunctionalComplex .
 
-:Attacker a gufo:Role,
+websem:Attacker a gufo:Role,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Attacker"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass :Incident ;
-            owl:onProperty :incidentParticipatedInAttacker ],
-        :Person .
+            owl:onClass websem:Incident ;
+            owl:onProperty websem:incidentParticipatedInAttacker ],
+        websem:Person .
 
-:Malicious a gufo:Role,
+websem:Malicious a gufo:Role,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Malicious"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass :Attack ;
-            owl:onProperty :attackParticipatedInMalicious ],
-        :InformationAsset,
+            owl:onClass websem:Attack ;
+            owl:onProperty websem:attackParticipatedInMalicious ],
+        websem:InformationAsset,
         gufo:Endurant .
 
-:Target a gufo:Role,
+websem:Target a gufo:Role,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Target"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass :Attack ;
-            owl:onProperty :attackParticipatedInTarget ],
-        :InformationAsset,
+            owl:onClass websem:Attack ;
+            owl:onProperty websem:attackParticipatedInTarget ],
+        websem:InformationAsset,
         gufo:Quality .
 
-:TipoDeAtaque a gufo:SituationType,
+websem:TipoDeAtaque a gufo:SituationType,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Tipo de Ataque"@en ;
     rdfs:subClassOf gufo:Situation .
 
-:Responsible a gufo:Role,
+websem:Responsible a gufo:Role,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Responsible"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :responsibleMediatesOwnershipAcquisition ;
-            owl:someValuesFrom :OwnershipAcquisition ],
-        :Person .
+            owl:onProperty websem:responsibleMediatesOwnershipAcquisition ;
+            owl:someValuesFrom websem:OwnershipAcquisition ],
+        websem:Person .
 
-:Tutored a gufo:RoleMixin,
+websem:Tutored a gufo:RoleMixin,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Tutored"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass :OwnershipAcquisition ;
-            owl:onProperty :tutoredMediatesOwnershipAcquisition ],
-        :InformationAsset,
+            owl:onClass websem:OwnershipAcquisition ;
+            owl:onProperty websem:tutoredMediatesOwnershipAcquisition ],
+        websem:InformationAsset,
         gufo:Relator .
 
-:Victim a gufo:Role,
+websem:Victim a gufo:Role,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Victim"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass :Incident ;
-            owl:onProperty :incidentParticipatedInVictim ],
+            owl:onClass websem:Incident ;
+            owl:onProperty websem:incidentParticipatedInVictim ],
         [ a owl:Restriction ;
             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass :Damage ;
-            owl:onProperty :presentIn ],
-        :Person .
+            owl:onClass websem:Damage ;
+            owl:onProperty websem:presentIn ],
+        websem:Person .
 
-:OwnershipAcquisition a gufo:Kind,
+websem:OwnershipAcquisition a gufo:Kind,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Ownership Acquisition"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :tutoredMediatesOwnershipAcquisition ;
-            owl:someValuesFrom :Tutored ],
+            owl:onProperty websem:tutoredMediatesOwnershipAcquisition ;
+            owl:someValuesFrom websem:Tutored ],
         [ a owl:Restriction ;
-            owl:onClass :Responsible ;
-            owl:onProperty :responsibleMediatesOwnershipAcquisition ;
+            owl:onClass websem:Responsible ;
+            owl:onProperty websem:responsibleMediatesOwnershipAcquisition ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         gufo:Relator .
 
-:Person a gufo:Kind,
+websem:Person a gufo:Kind,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Person"@en ;
     rdfs:subClassOf gufo:FunctionalComplex .
 
-:Vulnerable a gufo:SituationType,
+websem:Vulnerable a gufo:SituationType,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Vulnerable"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass :InformationAsset ;
-            owl:onProperty :Possui ],
+            owl:onClass websem:InformationAsset ;
+            owl:onProperty websem:Possui ],
         gufo:Situation .
 
-:AttackMoment a gufo:AbstractIndividualType,
+websem:AttackMoment a gufo:AbstractIndividualType,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Attack Moment"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :unauthorizedResultHistoricallyDependsOnAttackMoment ;
-            owl:someValuesFrom :UnauthorizedResult ],
+            owl:onProperty websem:unauthorizedResultHistoricallyDependsOnAttackMoment ;
+            owl:someValuesFrom websem:UnauthorizedResult ],
         [ a owl:Restriction ;
-            owl:onClass :Attack ;
-            owl:onProperty :attackInheresInAttackMoment ;
+            owl:onClass websem:Attack ;
+            owl:onProperty websem:attackInheresInAttackMoment ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
-            owl:onClass :Attack ;
-            owl:onProperty :attackInheresInAttackMoment ;
+            owl:onClass websem:Attack ;
+            owl:onProperty websem:attackInheresInAttackMoment ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         gufo:QualityValue .
 
-:IncidentMoment a gufo:AbstractIndividualType,
+websem:IncidentMoment a gufo:AbstractIndividualType,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Incident Moment"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass :Incident ;
-            owl:onProperty :incidentInheresInIncidentMoment ;
+            owl:onClass websem:Incident ;
+            owl:onProperty websem:incidentInheresInIncidentMoment ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
-            owl:onClass :Damage ;
-            owl:onProperty :damageHistoricallyDependsOnIncidentMoment ;
+            owl:onClass websem:Damage ;
+            owl:onProperty websem:damageHistoricallyDependsOnIncidentMoment ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
-            owl:onClass :Incident ;
-            owl:onProperty :incidentInheresInIncidentMoment ;
+            owl:onClass websem:Incident ;
+            owl:onProperty websem:incidentInheresInIncidentMoment ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         gufo:QualityValue .
 
-:Damage a gufo:SituationType,
+websem:Damage a gufo:SituationType,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Damage"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass :Victim ;
-            owl:onProperty :Atinge ],
+            owl:onClass websem:Victim ;
+            owl:onProperty websem:Atinge ],
         [ a owl:Restriction ;
-            owl:onProperty :obtainsIn_1 ;
-            owl:someValuesFrom :IncidentMoment ],
+            owl:onProperty websem:obtainsIn_1 ;
+            owl:someValuesFrom websem:IncidentMoment ],
         gufo:Situation .
 
-:UnauthorizedResult a gufo:SituationType,
+websem:UnauthorizedResult a gufo:SituationType,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Unauthorized Result"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass :AttackMoment ;
-            owl:onProperty :obtainsIn ],
+            owl:onClass websem:AttackMoment ;
+            owl:onProperty websem:obtainsIn ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass :InformationAsset ;
-            owl:onProperty :Ocorreu ],
+            owl:onClass websem:InformationAsset ;
+            owl:onProperty websem:Ocorreu ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass :Attack ;
-            owl:onProperty :Causado ],
+            owl:onClass websem:Attack ;
+            owl:onProperty websem:Causado ],
         gufo:Situation .
 
-:InformationAsset a gufo:Category,
+websem:InformationAsset a gufo:Category,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Information Asset"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass :Vulnerable ;
-            owl:onProperty :presentIn_2 ],
+            owl:onClass websem:Vulnerable ;
+            owl:onProperty websem:presentIn_2 ],
         [ a owl:Restriction ;
             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass :UnauthorizedResult ;
-            owl:onProperty :presentIn_1 ],
+            owl:onClass websem:UnauthorizedResult ;
+            owl:onProperty websem:presentIn_1 ],
         gufo:Endurant .
 
-:Incident a gufo:EventType,
+websem:Incident a gufo:EventType,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Incident"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :hasPart ;
-            owl:someValuesFrom :Attack ],
+            owl:onProperty websem:hasPart ;
+            owl:someValuesFrom websem:Attack ],
         [ a owl:Restriction ;
-            owl:onProperty :Causa ;
-            owl:someValuesFrom :Damage ],
-        [ a owl:Restriction ;
-            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass :IncidentMoment ;
-            owl:onProperty :beginsAt_1 ],
+            owl:onProperty websem:Causa ;
+            owl:someValuesFrom websem:Damage ],
         [ a owl:Restriction ;
             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass :IncidentMoment ;
-            owl:onProperty :endsAt_1 ],
+            owl:onClass websem:IncidentMoment ;
+            owl:onProperty websem:beginsAt_1 ],
+        [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass websem:IncidentMoment ;
+            owl:onProperty websem:endsAt_1 ],
         gufo:Event .
 
-:Attack a gufo:EventType,
+websem:Attack a gufo:EventType,
         owl:Class,
         owl:NamedIndividual ;
     rdfs:label "Attack"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass :Incident ;
-            owl:onProperty :Compoe ;
+            owl:onClass websem:Incident ;
+            owl:onProperty websem:Compoe ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
-            owl:onClass :UnauthorizedResult ;
-            owl:onProperty :Gera ;
+            owl:onClass websem:UnauthorizedResult ;
+            owl:onProperty websem:Gera ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
-            owl:onProperty :endsAt ;
-            owl:someValuesFrom :AttackMoment ],
+            owl:onProperty websem:endsAt ;
+            owl:someValuesFrom websem:AttackMoment ],
         [ a owl:Restriction ;
-            owl:onProperty :attackParticipatedInMalicious ;
-            owl:someValuesFrom :Malicious ],
+            owl:onProperty websem:attackParticipatedInMalicious ;
+            owl:someValuesFrom websem:Malicious ],
         [ a owl:Restriction ;
-            owl:onProperty :attackParticipatedInTarget ;
-            owl:someValuesFrom :Target ],
+            owl:onProperty websem:attackParticipatedInTarget ;
+            owl:someValuesFrom websem:Target ],
         [ a owl:Restriction ;
-            owl:onProperty :beginsAt ;
-            owl:someValuesFrom :AttackMoment ],
+            owl:onProperty websem:beginsAt ;
+            owl:someValuesFrom websem:AttackMoment ],
         [ a owl:Restriction ;
-            owl:onClass :Vulnerable ;
-            owl:onProperty :Atrai ;
+            owl:onClass websem:Vulnerable ;
+            owl:onProperty websem:Atrai ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         gufo:Event .
-
