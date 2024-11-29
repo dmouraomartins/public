@@ -1,0 +1,2573 @@
+@prefix : <http://websemantica.ddns.net#> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gufo: <https://nemo-ufes.github.io/gufo/gufo.ttl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://websemantica.ddns.net#> .
+
+<http://websemantica.ddns.net> rdf:type owl:Ontology ;
+                                owl:imports gufo: .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://xmlns.com/foaf/0.1/name
+foaf:name rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  gufoi:bears
+<gufoi:bears> rdf:type owl:ObjectProperty .
+
+
+###  gufoi:hadParticipant
+<gufoi:hadParticipant> rdf:type owl:ObjectProperty .
+
+
+###  gufoi:hasEventProperPart
+<gufoi:hasEventProperPart> rdf:type owl:ObjectProperty .
+
+
+###  gufoi:isMediatedBy
+<gufoi:isMediatedBy> rdf:type owl:ObjectProperty .
+
+
+###  gufoi:wasBroughtAboutBy
+<gufoi:wasBroughtAboutBy> rdf:type owl:ObjectProperty .
+
+
+###  gufoi:wasTriggeredBy
+<gufoi:wasTriggeredBy> rdf:type owl:ObjectProperty .
+
+
+###  http://websemantica.ddns.net#IncidentHasVictim
+:IncidentHasVictim rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf gufo:participatedIn ;
+                   rdfs:domain :Incident ;
+                   rdfs:range :Victim ;
+                   rdfs:label "IncidentHasVictim"@en .
+
+
+###  http://websemantica.ddns.net#assetHasResult
+:assetHasResult rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf gufo:inheresIn ;
+                rdfs:domain :InformationAsset ;
+                rdfs:range :UnauthorizedResult ;
+                rdfs:label "assetHasResult"@en .
+
+
+###  http://websemantica.ddns.net#attackBegins
+:attackBegins rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf gufo:hasBeginPointInXSDDateTimeStamp .
+
+
+###  http://websemantica.ddns.net#attackContributedToTriggerVulnerable
+:attackContributedToTriggerVulnerable rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf <gufoi:wasTriggeredBy> ;
+                                      rdfs:domain :Vulnerable ;
+                                      rdfs:range :Attack .
+
+
+###  http://websemantica.ddns.net#attackEnds
+:attackEnds rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf gufo:hasEndPointInXSDDateTimeStamp .
+
+
+###  http://websemantica.ddns.net#attackHasMalicious
+:attackHasMalicious rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf gufo:participatedIn ;
+                    rdfs:domain :Attack ;
+                    rdfs:range :Malicious ;
+                    rdfs:label "attackHasMalicious"@en .
+
+
+###  http://websemantica.ddns.net#attackHasTarget
+:attackHasTarget rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf gufo:participatedIn ;
+                 rdfs:domain :Attack ;
+                 rdfs:range :Target ;
+                 rdfs:label "attackHasTarget"@en .
+
+
+###  http://websemantica.ddns.net#attackerFromIncident
+:attackerFromIncident rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf <gufoi:hadParticipant> ;
+                      rdfs:domain :Attacker ;
+                      rdfs:range :Incident ;
+                      rdfs:label "attackerFromIncident"@en .
+
+
+###  http://websemantica.ddns.net#attacksFromType
+:attacksFromType rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf gufo:inheresIn ;
+                 rdfs:domain :Attack ;
+                 rdfs:range :TipoDeAtaque ;
+                 rdfs:label "attacksFromType"@en .
+
+
+###  http://websemantica.ddns.net#bringsResult
+:bringsResult rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf gufo:broughtAbout ;
+              rdfs:domain :Attack ;
+              rdfs:range :UnauthorizedResult ;
+              rdfs:label "bringsResult"@en .
+
+
+###  http://websemantica.ddns.net#causedBy
+:causedBy rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf <gufoi:wasBroughtAboutBy> ;
+          rdfs:domain :Damage ;
+          rdfs:range :Incident ;
+          rdfs:label "causedBy"@en .
+
+
+###  http://websemantica.ddns.net#compoe
+:compoe rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf <gufoi:hasEventProperPart> ;
+        rdfs:domain :Attack ;
+        rdfs:range :Incident ;
+        rdfs:label "compoe"@en .
+
+
+###  http://websemantica.ddns.net#damageInVictim
+:damageInVictim rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf <gufoi:bears> ;
+                rdfs:domain :Damage ;
+                rdfs:range :Victim ;
+                rdfs:label "damageInVictim"@en .
+
+
+###  http://websemantica.ddns.net#explore
+:explore rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf gufo:contributedToTrigger ;
+         rdfs:domain :Attack ;
+         rdfs:range :Vulnerable ;
+         rdfs:label "explore"@en .
+
+
+###  http://websemantica.ddns.net#hasOwner
+:hasOwner rdf:type owl:ObjectProperty ;
+          rdfs:domain :Tutored ;
+          rdfs:range :Responsible .
+
+
+###  http://websemantica.ddns.net#hasPart
+:hasPart rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf gufo:isEventProperPartOf ;
+         rdfs:domain :Incident ;
+         rdfs:range :Attack ;
+         rdfs:label "hasPart"@en .
+
+
+###  http://websemantica.ddns.net#hasVulnerability
+:hasVulnerability rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf gufo:inheresIn ;
+                  rdfs:domain :InformationAsset ;
+                  rdfs:range :Vulnerable ;
+                  rdfs:label "hasVulnerability"@en .
+
+
+###  http://websemantica.ddns.net#incidentBegins
+:incidentBegins rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf gufo:hasBeginPointInXSDDateTimeStamp .
+
+
+###  http://websemantica.ddns.net#incidentDamage
+:incidentDamage rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf gufo:broughtAbout ;
+                rdfs:domain :Incident ;
+                rdfs:range :Damage ;
+                rdfs:label "incidentDamage"@en .
+
+
+###  http://websemantica.ddns.net#incidentEnds
+:incidentEnds rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf gufo:hasEndPointInXSDDateTimeStamp .
+
+
+###  http://websemantica.ddns.net#incidentHasAttacker
+:incidentHasAttacker rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf gufo:participatedIn ;
+                     rdfs:domain :Incident ;
+                     rdfs:range :Attacker ;
+                     rdfs:label "incidentHasAttacker"@en .
+
+
+###  http://websemantica.ddns.net#maliciousFromAttack
+:maliciousFromAttack rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf <gufoi:hadParticipant> ;
+                     rdfs:domain :Malicious ;
+                     rdfs:range :Attack ;
+                     rdfs:label "maliciousFromAttack"@en .
+
+
+###  http://websemantica.ddns.net#responsibleMediatesOwnershipAcquisition
+:responsibleMediatesOwnershipAcquisition rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <gufoi:isMediatedBy> ,
+                                                            gufo:mediates ;
+                                         rdfs:domain :OwnershipAcquisition ,
+                                                     :Responsible ;
+                                         rdfs:range :OwnershipAcquisition ,
+                                                    :Responsible .
+
+
+###  http://websemantica.ddns.net#resultInAsset
+:resultInAsset rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf <gufoi:bears> ;
+               rdfs:domain :UnauthorizedResult ;
+               rdfs:range :InformationAsset ;
+               rdfs:label "resultInAsset"@en .
+
+
+###  http://websemantica.ddns.net#resultedBy
+:resultedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf <gufoi:wasBroughtAboutBy> ;
+            rdfs:domain :UnauthorizedResult ;
+            rdfs:range :Attack ;
+            rdfs:label "resultedBy"@en .
+
+
+###  http://websemantica.ddns.net#targetFromAttack
+:targetFromAttack rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf <gufoi:hadParticipant> ;
+                  rdfs:domain :Target ;
+                  rdfs:range :Attack ;
+                  rdfs:label "targetFromAttack"@en .
+
+
+###  http://websemantica.ddns.net#tutoredBy
+:tutoredBy rdf:type owl:ObjectProperty ;
+           rdfs:domain :Responsible ;
+           rdfs:range :Tutored .
+
+
+###  http://websemantica.ddns.net#tutoredMediatesOwnershipAcquisition
+:tutoredMediatesOwnershipAcquisition rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf <gufoi:isMediatedBy> ,
+                                                        gufo:mediates ;
+                                     rdfs:domain :OwnershipAcquisition ,
+                                                 :Tutored ;
+                                     rdfs:range :OwnershipAcquisition ,
+                                                :Tutored .
+
+
+###  http://websemantica.ddns.net#typeOfAttack
+:typeOfAttack rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf <gufoi:bears> ;
+              rdfs:domain :TipoDeAtaque ;
+              rdfs:range :Attack ;
+              rdfs:label "type of attack"@en .
+
+
+###  http://websemantica.ddns.net#victimFromIncident
+:victimFromIncident rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf <gufoi:hadParticipant> ;
+                    rdfs:domain :Victim ;
+                    rdfs:range :Incident ;
+                    rdfs:label "victimFromIncident"@en .
+
+
+###  http://websemantica.ddns.net#victimHasDamage
+:victimHasDamage rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf gufo:inheresIn ;
+                 rdfs:domain :Victim ;
+                 rdfs:range :Damage ;
+                 rdfs:label "victimHasDamage"@en .
+
+
+###  http://websemantica.ddns.net#vulnerabilityFromAsset
+:vulnerabilityFromAsset rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf <gufoi:bears> ;
+                        rdfs:domain :Vulnerable ;
+                        rdfs:range :InformationAsset ;
+                        rdfs:label "vulnerabilityFromAsset"@en .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#broughtAbout
+gufo:broughtAbout rdf:type owl:ObjectProperty .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#contributedToTrigger
+gufo:contributedToTrigger rdf:type owl:ObjectProperty .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#hasBeginPointInXSDDateTimeStamp
+gufo:hasBeginPointInXSDDateTimeStamp rdf:type owl:ObjectProperty .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#hasEndPointInXSDDateTimeStamp
+gufo:hasEndPointInXSDDateTimeStamp rdf:type owl:ObjectProperty .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#inheresIn
+gufo:inheresIn rdf:type owl:ObjectProperty .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#isEventProperPartOf
+gufo:isEventProperPartOf rdf:type owl:ObjectProperty .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#mediates
+gufo:mediates rdf:type owl:ObjectProperty .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#participatedIn
+gufo:participatedIn rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://websemantica.ddns.net#AssetName
+:AssetName rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf gufo:hasQualityValue ;
+           rdfs:domain :InformationAsset ;
+           rdfs:range xsd:string ;
+           rdfs:label "AssetName"@en .
+
+
+###  http://websemantica.ddns.net#CNPJ
+:CNPJ rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf gufo:hasQualityValue ;
+      rdfs:domain :LegalPerson ;
+      rdfs:range xsd:string ;
+      rdfs:label "CNPJ"@en .
+
+
+###  http://websemantica.ddns.net#DamageName
+:DamageName rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf gufo:hasQualityValue ;
+            rdfs:domain :Damage ;
+            rdfs:range xsd:string ;
+            rdfs:label "DamageName"@en .
+
+
+###  http://websemantica.ddns.net#Documento
+:Documento rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf gufo:hasQualityValue ;
+           rdfs:domain :NaturalPerson ;
+           rdfs:range xsd:string ;
+           rdfs:label "Documento"@en .
+
+
+###  http://websemantica.ddns.net#IP
+:IP rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf gufo:hasQualityValue ;
+    rdfs:domain :NetworkEquipament ;
+    rdfs:range xsd:string ;
+    rdfs:label "IP"@en .
+
+
+###  http://websemantica.ddns.net#IncidentCode
+:IncidentCode rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf gufo:hasQualityValue ;
+              rdfs:domain :Incident ;
+              rdfs:range xsd:string ;
+              rdfs:label "IncidentCode"@en .
+
+
+###  http://websemantica.ddns.net#MACAddress
+:MACAddress rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf gufo:hasQualityValue ;
+            rdfs:domain :NetworkEquipament ;
+            rdfs:range xsd:string ;
+            rdfs:label "MAC-address"@en .
+
+
+###  http://websemantica.ddns.net#Marca
+:Marca rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf gufo:hasQualityValue ;
+       rdfs:domain :Computer ;
+       rdfs:range xsd:string ;
+       rdfs:label "Marca"@en .
+
+
+###  http://websemantica.ddns.net#Modelo
+:Modelo rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf gufo:hasQualityValue ;
+        rdfs:domain :Computer ;
+        rdfs:range xsd:string ;
+        rdfs:label "Modelo"@en .
+
+
+###  http://websemantica.ddns.net#Nome
+:Nome rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf gufo:hasQualityValue ;
+      rdfs:domain :Software ;
+      rdfs:range xsd:string ;
+      rdfs:label "Nome"@en .
+
+
+###  http://websemantica.ddns.net#PersonName
+:PersonName rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf gufo:hasQualityValue ;
+            rdfs:domain :Person ;
+            rdfs:range xsd:string ;
+            rdfs:label "PersonName"@en .
+
+
+###  http://websemantica.ddns.net#Relatorio
+:Relatorio rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf gufo:hasQualityValue ;
+           rdfs:domain :Attack ;
+           rdfs:range xsd:string ;
+           rdfs:label "Relatorio"@en .
+
+
+###  http://websemantica.ddns.net#URName
+:URName rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf gufo:hasQualityValue ;
+        rdfs:domain :UnauthorizedResult ;
+        rdfs:range xsd:string ;
+        rdfs:label "URName"@en .
+
+
+###  http://websemantica.ddns.net#Versao
+:Versao rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf gufo:hasQualityValue ;
+        rdfs:domain :Software ;
+        rdfs:range xsd:string ;
+        rdfs:label "Versao"@en .
+
+
+###  http://websemantica.ddns.net#attackType
+:attackType rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf gufo:hasQualityValue ;
+            rdfs:domain :TipoDeAtaque ;
+            rdfs:range xsd:string ;
+            rdfs:label "attackType"@en .
+
+
+###  http://websemantica.ddns.net#vulnerabilityName
+:vulnerabilityName rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf gufo:hasQualityValue ;
+                   rdfs:domain :Vulnerable ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "vulnerabilityName"@en .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#hasQualityValue
+gufo:hasQualityValue rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://websemantica.ddns.net#Attack
+:Attack rdf:type owl:Class ;
+        rdfs:subClassOf gufo:Event ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :attackHasMalicious ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Malicious
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :attackHasTarget ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Target
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :attacksFromType ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :TipoDeAtaque
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :bringsResult ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :UnauthorizedResult
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :compoe ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Incident
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :explore ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Vulnerable
+                        ] .
+
+
+###  http://websemantica.ddns.net#Attacker
+:Attacker rdf:type owl:Class ;
+          rdfs:subClassOf :Person ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :attackerFromIncident ;
+                            owl:someValuesFrom :Incident
+                          ] .
+
+
+###  http://websemantica.ddns.net#Computer
+:Computer rdf:type owl:Class ;
+          rdfs:subClassOf :InformationAsset ,
+                          gufo:FunctionalComplex .
+
+
+###  http://websemantica.ddns.net#Damage
+:Damage rdf:type owl:Class ;
+        rdfs:subClassOf gufo:Situation ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :damageInVictim ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Victim
+                        ] .
+
+
+###  http://websemantica.ddns.net#Incident
+:Incident rdf:type owl:Class ;
+          rdfs:subClassOf gufo:Event ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasPart ;
+                            owl:someValuesFrom :Attack
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :IncidentHasVictim ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Victim
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :incidentDamage ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Damage
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :incidentHasAttacker ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Attacker
+                          ] .
+
+
+###  http://websemantica.ddns.net#InformationAsset
+:InformationAsset rdf:type owl:Class ;
+                  rdfs:subClassOf gufo:Endurant ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :assetHasResult ;
+                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :UnauthorizedResult
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasVulnerability ;
+                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :Vulnerable
+                                  ] .
+
+
+###  http://websemantica.ddns.net#LegalPerson
+:LegalPerson rdf:type owl:Class ;
+             rdfs:subClassOf :Person .
+
+
+###  http://websemantica.ddns.net#Malicious
+:Malicious rdf:type owl:Class ;
+           rdfs:subClassOf :InformationAsset ,
+                           gufo:Endurant ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :maliciousFromAttack ;
+                             owl:someValuesFrom :Attack
+                           ] .
+
+
+###  http://websemantica.ddns.net#NaturalPerson
+:NaturalPerson rdf:type owl:Class ;
+               rdfs:subClassOf :Person .
+
+
+###  http://websemantica.ddns.net#NetworkEquipament
+:NetworkEquipament rdf:type owl:Class ;
+                   rdfs:subClassOf :InformationAsset ,
+                                   gufo:FunctionalComplex .
+
+
+###  http://websemantica.ddns.net#OwnershipAcquisition
+:OwnershipAcquisition rdf:type owl:Class ;
+                      rdfs:subClassOf gufo:Relator ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :responsibleMediatesOwnershipAcquisition ;
+                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :Responsible
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :tutoredMediatesOwnershipAcquisition ;
+                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :Tutored
+                                      ] .
+
+
+###  http://websemantica.ddns.net#Person
+:Person rdf:type owl:Class ;
+        rdfs:subClassOf gufo:FunctionalComplex .
+
+
+###  http://websemantica.ddns.net#Responsible
+:Responsible rdf:type owl:Class ;
+             rdfs:subClassOf :Person ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :responsibleMediatesOwnershipAcquisition ;
+                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :OwnershipAcquisition
+                             ] .
+
+
+###  http://websemantica.ddns.net#Software
+:Software rdf:type owl:Class ;
+          rdfs:subClassOf :InformationAsset ,
+                          gufo:FunctionalComplex .
+
+
+###  http://websemantica.ddns.net#Target
+:Target rdf:type owl:Class ;
+        rdfs:subClassOf :InformationAsset ,
+                        gufo:Quality ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :targetFromAttack ;
+                          owl:someValuesFrom :Attack
+                        ] .
+
+
+###  http://websemantica.ddns.net#TipoDeAtaque
+:TipoDeAtaque rdf:type owl:Class ;
+              rdfs:subClassOf gufo:Quality ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :typeOfAttack ;
+                                owl:someValuesFrom :Attack
+                              ] .
+
+
+###  http://websemantica.ddns.net#Tutored
+:Tutored rdf:type owl:Class ;
+         rdfs:subClassOf :InformationAsset ,
+                         gufo:Relator ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :tutoredMediatesOwnershipAcquisition ;
+                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :OwnershipAcquisition
+                         ] .
+
+
+###  http://websemantica.ddns.net#UnauthorizedResult
+:UnauthorizedResult rdf:type owl:Class ;
+                    rdfs:subClassOf gufo:Situation ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :resultInAsset ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :InformationAsset
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :resultedBy ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :Attack
+                                    ] .
+
+
+###  http://websemantica.ddns.net#Victim
+:Victim rdf:type owl:Class ;
+        rdfs:subClassOf :Person ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :victimFromIncident ;
+                          owl:someValuesFrom :Incident
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :victimHasDamage ;
+                          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Damage
+                        ] .
+
+
+###  http://websemantica.ddns.net#Vulnerable
+:Vulnerable rdf:type owl:Class ;
+            rdfs:subClassOf gufo:Situation ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :vulnerabilityFromAsset ;
+                              owl:someValuesFrom :InformationAsset
+                            ] .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#Category
+gufo:Category rdf:type owl:Class .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#Endurant
+gufo:Endurant rdf:type owl:Class .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#Event
+gufo:Event rdf:type owl:Class .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#EventType
+gufo:EventType rdf:type owl:Class .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#FunctionalComplex
+gufo:FunctionalComplex rdf:type owl:Class .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#Kind
+gufo:Kind rdf:type owl:Class .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#MaterialRelationshipType
+gufo:MaterialRelationshipType rdf:type owl:Class .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#Quality
+gufo:Quality rdf:type owl:Class .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#Relator
+gufo:Relator rdf:type owl:Class .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#Role
+gufo:Role rdf:type owl:Class .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#RoleMixin
+gufo:RoleMixin rdf:type owl:Class .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#Situation
+gufo:Situation rdf:type owl:Class .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#SituationType
+gufo:SituationType rdf:type owl:Class .
+
+
+###  https://nemo-ufes.github.io/gufo/gufo.ttl#SubKind
+gufo:SubKind rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://websemantica.ddns.net#Attack
+:Attack rdf:type owl:NamedIndividual ,
+                 gufo:EventType .
+
+
+###  http://websemantica.ddns.net#Attack_1
+:Attack_1 rdf:type owl:NamedIndividual ,
+                   :Attack ;
+          :attackHasTarget :Target_8 ;
+          :attacksFromType :TipoDeAtaque_2 ;
+          :bringsResult :UnauthorizedResult_10 ;
+          :compoe :Incident_4 ;
+          :explore :Vulnerable_1 ;
+          :Relatorio "Relatorio_Attack_1" ;
+          :attackBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          :attackEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          foaf:name "Attack1" .
+
+
+###  http://websemantica.ddns.net#Attack_10
+:Attack_10 rdf:type owl:NamedIndividual ,
+                    :Attack ;
+           :attackHasMalicious :Malicious_2 ;
+           :attackHasTarget :Target_1 ;
+           :attacksFromType :TipoDeAtaque_3 ;
+           :bringsResult :UnauthorizedResult_9 ;
+           :compoe :Incident_7 ;
+           :explore :Vulnerable_7 ;
+           :Relatorio "Relatorio_Attack_10" ;
+           :attackBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+           :attackEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+           foaf:name "Attack10" .
+
+
+###  http://websemantica.ddns.net#Attack_2
+:Attack_2 rdf:type owl:NamedIndividual ,
+                   :Attack ;
+          :attackHasMalicious :Malicious_2 ;
+          :attackHasTarget :Target_7 ;
+          :attacksFromType :TipoDeAtaque_2 ;
+          :bringsResult :UnauthorizedResult_9 ;
+          :compoe :Incident_4 ;
+          :explore :Vulnerable_4 ;
+          :Relatorio "Relatorio_Attack_2" ;
+          :attackBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          :attackEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          foaf:name "Attack2" .
+
+
+###  http://websemantica.ddns.net#Attack_3
+:Attack_3 rdf:type owl:NamedIndividual ,
+                   :Attack ;
+          :attackHasMalicious :Malicious_3 ;
+          :attackHasTarget :Target_5 ;
+          :attacksFromType :TipoDeAtaque_4 ;
+          :bringsResult :UnauthorizedResult_4 ;
+          :compoe :Incident_3 ;
+          :explore :Vulnerable_7 ;
+          :Relatorio "Relatorio_Attack_3" ;
+          :attackBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          :attackEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          foaf:name "Attack3" .
+
+
+###  http://websemantica.ddns.net#Attack_4
+:Attack_4 rdf:type owl:NamedIndividual ,
+                   :Attack ;
+          :attackHasMalicious :Malicious_6 ;
+          :attackHasTarget :Target_1 ;
+          :attacksFromType :TipoDeAtaque_7 ;
+          :bringsResult :UnauthorizedResult_7 ;
+          :compoe :Incident_5 ;
+          :explore :Vulnerable_8 ;
+          :Relatorio "Relatorio_Attack_4" ;
+          :attackBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          :attackEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          foaf:name "Attack4" .
+
+
+###  http://websemantica.ddns.net#Attack_5
+:Attack_5 rdf:type owl:NamedIndividual ,
+                   :Attack ;
+          :attackHasMalicious :Malicious_3 ;
+          :attackHasTarget :Target_10 ;
+          :attacksFromType :TipoDeAtaque_7 ;
+          :bringsResult :UnauthorizedResult_9 ;
+          :compoe :Incident_2 ;
+          :explore :Vulnerable_8 ;
+          :Relatorio "Relatorio_Attack_5" ;
+          :attackBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          :attackEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          foaf:name "Attack5" .
+
+
+###  http://websemantica.ddns.net#Attack_6
+:Attack_6 rdf:type owl:NamedIndividual ,
+                   :Attack ;
+          :attackHasMalicious :Malicious_3 ;
+          :attackHasTarget :Target_6 ;
+          :attacksFromType :TipoDeAtaque_5 ;
+          :bringsResult :UnauthorizedResult_9 ;
+          :compoe :Incident_6 ;
+          :explore :Vulnerable_5 ;
+          :Relatorio "Relatorio_Attack_6" ;
+          :attackBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          :attackEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          foaf:name "Attack6" .
+
+
+###  http://websemantica.ddns.net#Attack_7
+:Attack_7 rdf:type owl:NamedIndividual ,
+                   :Attack ;
+          :attackHasMalicious :Malicious_1 ;
+          :attackHasTarget :Target_6 ;
+          :attacksFromType :TipoDeAtaque_8 ;
+          :bringsResult :UnauthorizedResult_7 ;
+          :compoe :Incident_7 ;
+          :explore :Vulnerable_4 ;
+          :Relatorio "Relatorio_Attack_7" ;
+          :attackBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          :attackEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          foaf:name "Attack7" .
+
+
+###  http://websemantica.ddns.net#Attack_8
+:Attack_8 rdf:type owl:NamedIndividual ,
+                   :Attack ;
+          :attackHasTarget :Target_3 ;
+          :attacksFromType :TipoDeAtaque_7 ;
+          :bringsResult :UnauthorizedResult_8 ;
+          :compoe :Incident_1 ;
+          :explore :Vulnerable_5 ;
+          :Relatorio "Relatorio_Attack_8" ;
+          :attackEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          foaf:name "Attack8" .
+
+
+###  http://websemantica.ddns.net#Attack_9
+:Attack_9 rdf:type owl:NamedIndividual ,
+                   :Attack ;
+          :attackHasTarget :Target_5 ;
+          :attacksFromType :TipoDeAtaque_4 ;
+          :bringsResult :UnauthorizedResult_1 ;
+          :compoe :Incident_5 ;
+          :explore :Vulnerable_1 ;
+          :Relatorio "Relatorio_Attack_9" ;
+          :attackBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          :attackEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+          foaf:name "Attack9" .
+
+
+###  http://websemantica.ddns.net#Attacker
+:Attacker rdf:type owl:NamedIndividual ,
+                   gufo:Role .
+
+
+###  http://websemantica.ddns.net#Attacker_1
+:Attacker_1 rdf:type owl:NamedIndividual ,
+                     :Attacker ;
+            :attackerFromIncident :Incident_1 ,
+                                  :Incident_3 ,
+                                  :Incident_6 ;
+            foaf:name "Attacker1" .
+
+
+###  http://websemantica.ddns.net#Attacker_2
+:Attacker_2 rdf:type owl:NamedIndividual ,
+                     :Attacker ;
+            :attackerFromIncident :Incident_7 ;
+            foaf:name "Attacker2" .
+
+
+###  http://websemantica.ddns.net#Attacker_3
+:Attacker_3 rdf:type owl:NamedIndividual ,
+                     :Attacker ;
+            :attackerFromIncident :Incident_2 ,
+                                  :Incident_5 ;
+            foaf:name "Attacker3" .
+
+
+###  http://websemantica.ddns.net#Attacker_4
+:Attacker_4 rdf:type owl:NamedIndividual ,
+                     :Attacker ;
+            :attackerFromIncident :Incident_4 ;
+            foaf:name "Attacker4" .
+
+
+###  http://websemantica.ddns.net#Computer
+:Computer rdf:type owl:NamedIndividual ,
+                   gufo:Kind .
+
+
+###  http://websemantica.ddns.net#Computer_1
+:Computer_1 rdf:type owl:NamedIndividual ,
+                     :Computer ;
+            :Marca "Marca_Computer_1" ;
+            :Modelo "Modelo_Computer_1" ;
+            foaf:name "Computer1" .
+
+
+###  http://websemantica.ddns.net#Computer_10
+:Computer_10 rdf:type owl:NamedIndividual ,
+                      :Computer ;
+             :Marca "Marca_Computer_10" ;
+             :Modelo "Modelo_Computer_10" ;
+             foaf:name "Computer10" .
+
+
+###  http://websemantica.ddns.net#Computer_2
+:Computer_2 rdf:type owl:NamedIndividual ,
+                     :Computer ;
+            :Marca "Marca_Computer_2" ;
+            :Modelo "Modelo_Computer_2" ;
+            foaf:name "Computer2" .
+
+
+###  http://websemantica.ddns.net#Computer_3
+:Computer_3 rdf:type owl:NamedIndividual ,
+                     :Computer ;
+            :Marca "Marca_Computer_3" ;
+            :Modelo "Modelo_Computer_3" ;
+            foaf:name "Computer3" .
+
+
+###  http://websemantica.ddns.net#Computer_4
+:Computer_4 rdf:type owl:NamedIndividual ,
+                     :Computer ;
+            :Marca "Marca_Computer_4" ;
+            :Modelo "Modelo_Computer_4" ;
+            foaf:name "Computer4" .
+
+
+###  http://websemantica.ddns.net#Computer_5
+:Computer_5 rdf:type owl:NamedIndividual ,
+                     :Computer ;
+            :Marca "Marca_Computer_5" ;
+            :Modelo "Modelo_Computer_5" ;
+            foaf:name "Computer5" .
+
+
+###  http://websemantica.ddns.net#Computer_6
+:Computer_6 rdf:type owl:NamedIndividual ,
+                     :Computer ;
+            :Marca "Marca_Computer_6" ;
+            :Modelo "Modelo_Computer_6" ;
+            foaf:name "Computer6" .
+
+
+###  http://websemantica.ddns.net#Computer_7
+:Computer_7 rdf:type owl:NamedIndividual ,
+                     :Computer ;
+            :Marca "Marca_Computer_7" ;
+            :Modelo "Modelo_Computer_7" ;
+            foaf:name "Computer7" .
+
+
+###  http://websemantica.ddns.net#Computer_8
+:Computer_8 rdf:type owl:NamedIndividual ,
+                     :Computer ;
+            :Marca "Marca_Computer_8" ;
+            :Modelo "Modelo_Computer_8" ;
+            foaf:name "Computer8" .
+
+
+###  http://websemantica.ddns.net#Computer_9
+:Computer_9 rdf:type owl:NamedIndividual ,
+                     :Computer ;
+            :Marca "Marca_Computer_9" ;
+            :Modelo "Modelo_Computer_9" ;
+            foaf:name "Computer9" .
+
+
+###  http://websemantica.ddns.net#Damage
+:Damage rdf:type owl:NamedIndividual ,
+                 gufo:SituationType .
+
+
+###  http://websemantica.ddns.net#Damage_1
+:Damage_1 rdf:type owl:NamedIndividual ,
+                   :Damage ;
+          :causedBy :Incident_1 ,
+                    :Incident_3 ;
+          :damageInVictim :Victim_5 ;
+          :DamageName "DamageName_Damage_1" ;
+          foaf:name "Damage1" .
+
+
+###  http://websemantica.ddns.net#Damage_10
+:Damage_10 rdf:type owl:NamedIndividual ,
+                    :Damage ;
+           :causedBy :Incident_1 ,
+                     :Incident_2 ;
+           :damageInVictim :Victim_9 ;
+           :DamageName "DamageName_Damage_10" ;
+           foaf:name "Damage10" .
+
+
+###  http://websemantica.ddns.net#Damage_2
+:Damage_2 rdf:type owl:NamedIndividual ,
+                   :Damage ;
+          :damageInVictim :Victim_8 ;
+          :DamageName "DamageName_Damage_2" ;
+          foaf:name "Damage2" .
+
+
+###  http://websemantica.ddns.net#Damage_3
+:Damage_3 rdf:type owl:NamedIndividual ,
+                   :Damage ;
+          :causedBy :Incident_5 ;
+          :damageInVictim :Victim_10 ;
+          :DamageName "DamageName_Damage_3" ;
+          foaf:name "Damage3" .
+
+
+###  http://websemantica.ddns.net#Damage_4
+:Damage_4 rdf:type owl:NamedIndividual ,
+                   :Damage ;
+          :causedBy :Incident_4 ,
+                    :Incident_7 ;
+          :damageInVictim :Victim_9 ;
+          :DamageName "DamageName_Damage_4" ;
+          foaf:name "Damage4" .
+
+
+###  http://websemantica.ddns.net#Damage_5
+:Damage_5 rdf:type owl:NamedIndividual ,
+                   :Damage ;
+          :causedBy :Incident_1 ;
+          :damageInVictim :Victim_4 ;
+          :DamageName "DamageName_Damage_5" ;
+          foaf:name "Damage5" .
+
+
+###  http://websemantica.ddns.net#Damage_6
+:Damage_6 rdf:type owl:NamedIndividual ,
+                   :Damage ;
+          :damageInVictim :Victim_7 ;
+          :DamageName "DamageName_Damage_6" ;
+          foaf:name "Damage6" .
+
+
+###  http://websemantica.ddns.net#Damage_7
+:Damage_7 rdf:type owl:NamedIndividual ,
+                   :Damage ;
+          :causedBy :Incident_4 ;
+          :DamageName "DamageName_Damage_7" ;
+          foaf:name "Damage7" .
+
+
+###  http://websemantica.ddns.net#Damage_8
+:Damage_8 rdf:type owl:NamedIndividual ,
+                   :Damage ;
+          :causedBy :Incident_6 ;
+          :damageInVictim :Victim_1 ;
+          :DamageName "DamageName_Damage_8" ;
+          foaf:name "Damage8" .
+
+
+###  http://websemantica.ddns.net#Damage_9
+:Damage_9 rdf:type owl:NamedIndividual ,
+                   :Damage ;
+          :causedBy :Incident_1 ,
+                    :Incident_3 ;
+          :damageInVictim :Victim_10 ;
+          :DamageName "DamageName_Damage_9" ;
+          foaf:name "Damage9" .
+
+
+###  http://websemantica.ddns.net#Incident
+:Incident rdf:type owl:NamedIndividual ,
+                   gufo:EventType .
+
+
+###  http://websemantica.ddns.net#Incident_1
+:Incident_1 rdf:type owl:NamedIndividual ,
+                     :Incident ;
+            :IncidentHasVictim :Victim_9 ;
+            :hasPart :Attack_8 ;
+            :incidentDamage :Damage_1 ;
+            :incidentHasAttacker :Attacker_4 ;
+            :IncidentCode "IncidentCode_Incident_1" ;
+            :incidentBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+            foaf:name "Incident1" .
+
+
+###  http://websemantica.ddns.net#Incident_2
+:Incident_2 rdf:type owl:NamedIndividual ,
+                     :Incident ;
+            :IncidentHasVictim :Victim_2 ;
+            :hasPart :Attack_5 ;
+            :incidentDamage :Damage_1 ;
+            :incidentHasAttacker :Attacker_2 ;
+            :IncidentCode "IncidentCode_Incident_2" ;
+            :incidentBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+            :incidentEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+            foaf:name "Incident2" .
+
+
+###  http://websemantica.ddns.net#Incident_3
+:Incident_3 rdf:type owl:NamedIndividual ,
+                     :Incident ;
+            :IncidentHasVictim :Victim_5 ;
+            :hasPart :Attack_3 ;
+            :incidentDamage :Damage_3 ;
+            :incidentHasAttacker :Attacker_1 ;
+            :IncidentCode "IncidentCode_Incident_3" ;
+            :incidentBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+            :incidentEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+            foaf:name "Incident3" .
+
+
+###  http://websemantica.ddns.net#Incident_4
+:Incident_4 rdf:type owl:NamedIndividual ,
+                     :Incident ;
+            :IncidentHasVictim :Victim_4 ;
+            :hasPart :Attack_1 ,
+                     :Attack_2 ;
+            :incidentDamage :Damage_6 ;
+            :incidentHasAttacker :Attacker_2 ;
+            :IncidentCode "IncidentCode_Incident_4" ;
+            :incidentBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+            :incidentEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+            foaf:name "Incident4" .
+
+
+###  http://websemantica.ddns.net#Incident_5
+:Incident_5 rdf:type owl:NamedIndividual ,
+                     :Incident ;
+            :IncidentHasVictim :Victim_10 ;
+            :hasPart :Attack_4 ,
+                     :Attack_9 ;
+            :incidentDamage :Damage_5 ;
+            :incidentHasAttacker :Attacker_4 ;
+            :IncidentCode "IncidentCode_Incident_5" ;
+            :incidentBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+            :incidentEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+            foaf:name "Incident5" .
+
+
+###  http://websemantica.ddns.net#Incident_6
+:Incident_6 rdf:type owl:NamedIndividual ,
+                     :Incident ;
+            :IncidentHasVictim :Victim_7 ;
+            :hasPart :Attack_6 ;
+            :incidentDamage :Damage_7 ;
+            :incidentHasAttacker :Attacker_3 ;
+            :IncidentCode "IncidentCode_Incident_6" ;
+            :incidentBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+            :incidentEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+            foaf:name "Incident6" .
+
+
+###  http://websemantica.ddns.net#Incident_7
+:Incident_7 rdf:type owl:NamedIndividual ,
+                     :Incident ;
+            :IncidentHasVictim :Victim_7 ;
+            :hasPart :Attack_10 ,
+                     :Attack_7 ;
+            :incidentDamage :Damage_2 ;
+            :incidentHasAttacker :Attacker_4 ;
+            :IncidentCode "IncidentCode_Incident_7" ;
+            :incidentBegins "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+            :incidentEnds "2024-12-05T13:30:00Z"^^xsd:dateTimeStamp ;
+            foaf:name "Incident7" .
+
+
+###  http://websemantica.ddns.net#InformationAsset
+:InformationAsset rdf:type owl:NamedIndividual ,
+                           gufo:Category .
+
+
+###  http://websemantica.ddns.net#InformationAsset_1
+:InformationAsset_1 rdf:type owl:NamedIndividual ,
+                             :InformationAsset ;
+                    :assetHasResult :UnauthorizedResult_1 ;
+                    :hasVulnerability :Vulnerable_6 ,
+                                      :Vulnerable_8 ;
+                    :AssetName "AssetName_InformationAsset_1" ;
+                    foaf:name "InformationAsset1" .
+
+
+###  http://websemantica.ddns.net#InformationAsset_10
+:InformationAsset_10 rdf:type owl:NamedIndividual ,
+                              :InformationAsset ;
+                     :assetHasResult :UnauthorizedResult_7 ;
+                     :hasVulnerability :Vulnerable_7 ,
+                                       :Vulnerable_9 ;
+                     :AssetName "AssetName_InformationAsset_10" ;
+                     foaf:name "InformationAsset10" .
+
+
+###  http://websemantica.ddns.net#InformationAsset_2
+:InformationAsset_2 rdf:type owl:NamedIndividual ,
+                             :InformationAsset ;
+                    :hasVulnerability :Vulnerable_6 ;
+                    :AssetName "AssetName_InformationAsset_2" ;
+                    foaf:name "InformationAsset2" .
+
+
+###  http://websemantica.ddns.net#InformationAsset_3
+:InformationAsset_3 rdf:type owl:NamedIndividual ,
+                             :InformationAsset ;
+                    :assetHasResult :UnauthorizedResult_10 ,
+                                    :UnauthorizedResult_3 ,
+                                    :UnauthorizedResult_9 ;
+                    :hasVulnerability :Vulnerable_1 ,
+                                      :Vulnerable_10 ,
+                                      :Vulnerable_3 ;
+                    :AssetName "AssetName_InformationAsset_3" ;
+                    foaf:name "InformationAsset3" .
+
+
+###  http://websemantica.ddns.net#InformationAsset_4
+:InformationAsset_4 rdf:type owl:NamedIndividual ,
+                             :InformationAsset ;
+                    :assetHasResult :UnauthorizedResult_1 ,
+                                    :UnauthorizedResult_4 ,
+                                    :UnauthorizedResult_6 ,
+                                    :UnauthorizedResult_9 ;
+                    :hasVulnerability :Vulnerable_5 ,
+                                      :Vulnerable_8 ;
+                    :AssetName "AssetName_InformationAsset_4" ;
+                    foaf:name "InformationAsset4" .
+
+
+###  http://websemantica.ddns.net#InformationAsset_5
+:InformationAsset_5 rdf:type owl:NamedIndividual ,
+                             :InformationAsset ;
+                    :assetHasResult :UnauthorizedResult_2 ,
+                                    :UnauthorizedResult_4 ,
+                                    :UnauthorizedResult_8 ;
+                    :hasVulnerability :Vulnerable_4 ,
+                                      :Vulnerable_7 ;
+                    :AssetName "AssetName_InformationAsset_5" ;
+                    foaf:name "InformationAsset5" .
+
+
+###  http://websemantica.ddns.net#InformationAsset_6
+:InformationAsset_6 rdf:type owl:NamedIndividual ,
+                             :InformationAsset ;
+                    :assetHasResult :UnauthorizedResult_1 ,
+                                    :UnauthorizedResult_4 ,
+                                    :UnauthorizedResult_8 ;
+                    :hasVulnerability :Vulnerable_4 ;
+                    :AssetName "AssetName_InformationAsset_6" ;
+                    foaf:name "InformationAsset6" .
+
+
+###  http://websemantica.ddns.net#InformationAsset_7
+:InformationAsset_7 rdf:type owl:NamedIndividual ,
+                             :InformationAsset ;
+                    :hasVulnerability :Vulnerable_4 ,
+                                      :Vulnerable_5 ,
+                                      :Vulnerable_7 ;
+                    :AssetName "AssetName_InformationAsset_7" ;
+                    foaf:name "InformationAsset7" .
+
+
+###  http://websemantica.ddns.net#InformationAsset_8
+:InformationAsset_8 rdf:type owl:NamedIndividual ,
+                             :InformationAsset ;
+                    :AssetName "AssetName_InformationAsset_8" ;
+                    foaf:name "InformationAsset8" .
+
+
+###  http://websemantica.ddns.net#InformationAsset_9
+:InformationAsset_9 rdf:type owl:NamedIndividual ,
+                             :InformationAsset ;
+                    :assetHasResult :UnauthorizedResult_8 ;
+                    :hasVulnerability :Vulnerable_10 ,
+                                      :Vulnerable_8 ;
+                    :AssetName "AssetName_InformationAsset_9" ;
+                    foaf:name "InformationAsset9" .
+
+
+###  http://websemantica.ddns.net#LegalPerson
+:LegalPerson rdf:type owl:NamedIndividual ,
+                      gufo:SubKind .
+
+
+###  http://websemantica.ddns.net#LegalPerson_1
+:LegalPerson_1 rdf:type owl:NamedIndividual ,
+                        :LegalPerson ;
+               :CNPJ "CNPJ_LegalPerson_1" ;
+               foaf:name "LegalPerson1" .
+
+
+###  http://websemantica.ddns.net#LegalPerson_10
+:LegalPerson_10 rdf:type owl:NamedIndividual ,
+                         :LegalPerson ;
+                :CNPJ "CNPJ_LegalPerson_10" ;
+                foaf:name "LegalPerson10" .
+
+
+###  http://websemantica.ddns.net#LegalPerson_2
+:LegalPerson_2 rdf:type owl:NamedIndividual ,
+                        :LegalPerson ;
+               :CNPJ "CNPJ_LegalPerson_2" ;
+               foaf:name "LegalPerson2" .
+
+
+###  http://websemantica.ddns.net#LegalPerson_3
+:LegalPerson_3 rdf:type owl:NamedIndividual ,
+                        :LegalPerson ;
+               :CNPJ "CNPJ_LegalPerson_3" ;
+               foaf:name "LegalPerson3" .
+
+
+###  http://websemantica.ddns.net#LegalPerson_4
+:LegalPerson_4 rdf:type owl:NamedIndividual ,
+                        :LegalPerson ;
+               :CNPJ "CNPJ_LegalPerson_4" ;
+               foaf:name "LegalPerson4" .
+
+
+###  http://websemantica.ddns.net#LegalPerson_5
+:LegalPerson_5 rdf:type owl:NamedIndividual ,
+                        :LegalPerson ;
+               :CNPJ "CNPJ_LegalPerson_5" ;
+               foaf:name "LegalPerson5" .
+
+
+###  http://websemantica.ddns.net#LegalPerson_6
+:LegalPerson_6 rdf:type owl:NamedIndividual ,
+                        :LegalPerson ;
+               :CNPJ "CNPJ_LegalPerson_6" ;
+               foaf:name "LegalPerson6" .
+
+
+###  http://websemantica.ddns.net#LegalPerson_7
+:LegalPerson_7 rdf:type owl:NamedIndividual ,
+                        :LegalPerson ;
+               :CNPJ "CNPJ_LegalPerson_7" ;
+               foaf:name "LegalPerson7" .
+
+
+###  http://websemantica.ddns.net#LegalPerson_8
+:LegalPerson_8 rdf:type owl:NamedIndividual ,
+                        :LegalPerson ;
+               :CNPJ "CNPJ_LegalPerson_8" ;
+               foaf:name "LegalPerson8" .
+
+
+###  http://websemantica.ddns.net#LegalPerson_9
+:LegalPerson_9 rdf:type owl:NamedIndividual ,
+                        :LegalPerson ;
+               :CNPJ "CNPJ_LegalPerson_9" ;
+               foaf:name "LegalPerson9" .
+
+
+###  http://websemantica.ddns.net#Malicious
+:Malicious rdf:type owl:NamedIndividual ,
+                    gufo:Role .
+
+
+###  http://websemantica.ddns.net#Malicious_1
+:Malicious_1 rdf:type owl:NamedIndividual ,
+                      :Malicious ;
+             :maliciousFromAttack :Attack_1 ,
+                                  :Attack_4 ;
+             foaf:name "Malicious1" .
+
+
+###  http://websemantica.ddns.net#Malicious_2
+:Malicious_2 rdf:type owl:NamedIndividual ,
+                      :Malicious ;
+             :maliciousFromAttack :Attack_2 ,
+                                  :Attack_3 ;
+             foaf:name "Malicious2" .
+
+
+###  http://websemantica.ddns.net#Malicious_3
+:Malicious_3 rdf:type owl:NamedIndividual ,
+                      :Malicious ;
+             :maliciousFromAttack :Attack_6 ;
+             foaf:name "Malicious3" .
+
+
+###  http://websemantica.ddns.net#Malicious_5
+:Malicious_5 rdf:type owl:NamedIndividual ,
+                      :Malicious ;
+             :maliciousFromAttack :Attack_10 ,
+                                  :Attack_5 ,
+                                  :Attack_7 ,
+                                  :Attack_8 ;
+             foaf:name "Malicious5" .
+
+
+###  http://websemantica.ddns.net#Malicious_6
+:Malicious_6 rdf:type owl:NamedIndividual ,
+                      :Malicious ;
+             :maliciousFromAttack :Attack_9 ;
+             foaf:name "Malicious6" .
+
+
+###  http://websemantica.ddns.net#NaturalPerson
+:NaturalPerson rdf:type owl:NamedIndividual ,
+                        gufo:SubKind .
+
+
+###  http://websemantica.ddns.net#NaturalPerson_1
+:NaturalPerson_1 rdf:type owl:NamedIndividual ,
+                          :NaturalPerson ;
+                 :Documento "Documento_NaturalPerson_1" ;
+                 foaf:name "NaturalPerson1" .
+
+
+###  http://websemantica.ddns.net#NaturalPerson_10
+:NaturalPerson_10 rdf:type owl:NamedIndividual ,
+                           :NaturalPerson ;
+                  :Documento "Documento_NaturalPerson_10" ;
+                  foaf:name "NaturalPerson10" .
+
+
+###  http://websemantica.ddns.net#NaturalPerson_2
+:NaturalPerson_2 rdf:type owl:NamedIndividual ,
+                          :NaturalPerson ;
+                 :Documento "Documento_NaturalPerson_2" ;
+                 foaf:name "NaturalPerson2" .
+
+
+###  http://websemantica.ddns.net#NaturalPerson_3
+:NaturalPerson_3 rdf:type owl:NamedIndividual ,
+                          :NaturalPerson ;
+                 :Documento "Documento_NaturalPerson_3" ;
+                 foaf:name "NaturalPerson3" .
+
+
+###  http://websemantica.ddns.net#NaturalPerson_4
+:NaturalPerson_4 rdf:type owl:NamedIndividual ,
+                          :NaturalPerson ;
+                 :Documento "Documento_NaturalPerson_4" ;
+                 foaf:name "NaturalPerson4" .
+
+
+###  http://websemantica.ddns.net#NaturalPerson_5
+:NaturalPerson_5 rdf:type owl:NamedIndividual ,
+                          :NaturalPerson ;
+                 :Documento "Documento_NaturalPerson_5" ;
+                 foaf:name "NaturalPerson5" .
+
+
+###  http://websemantica.ddns.net#NaturalPerson_6
+:NaturalPerson_6 rdf:type owl:NamedIndividual ,
+                          :NaturalPerson ;
+                 :Documento "Documento_NaturalPerson_6" ;
+                 foaf:name "NaturalPerson6" .
+
+
+###  http://websemantica.ddns.net#NaturalPerson_7
+:NaturalPerson_7 rdf:type owl:NamedIndividual ,
+                          :NaturalPerson ;
+                 :Documento "Documento_NaturalPerson_7" ;
+                 foaf:name "NaturalPerson7" .
+
+
+###  http://websemantica.ddns.net#NaturalPerson_8
+:NaturalPerson_8 rdf:type owl:NamedIndividual ,
+                          :NaturalPerson ;
+                 :Documento "Documento_NaturalPerson_8" ;
+                 foaf:name "NaturalPerson8" .
+
+
+###  http://websemantica.ddns.net#NaturalPerson_9
+:NaturalPerson_9 rdf:type owl:NamedIndividual ,
+                          :NaturalPerson ;
+                 :Documento "Documento_NaturalPerson_9" ;
+                 foaf:name "NaturalPerson9" .
+
+
+###  http://websemantica.ddns.net#NetworkEquipament
+:NetworkEquipament rdf:type owl:NamedIndividual ,
+                            gufo:Kind .
+
+
+###  http://websemantica.ddns.net#NetworkEquipament_1
+:NetworkEquipament_1 rdf:type owl:NamedIndividual ,
+                              :NetworkEquipament ;
+                     :IP "IP_NetworkEquipament_1" ;
+                     :MACAddress "MACAddress_NetworkEquipament_1" ;
+                     foaf:name "NetworkEquipament1" .
+
+
+###  http://websemantica.ddns.net#NetworkEquipament_10
+:NetworkEquipament_10 rdf:type owl:NamedIndividual ,
+                               :NetworkEquipament ;
+                      :IP "IP_NetworkEquipament_10" ;
+                      :MACAddress "MACAddress_NetworkEquipament_10" ;
+                      foaf:name "NetworkEquipament10" .
+
+
+###  http://websemantica.ddns.net#NetworkEquipament_2
+:NetworkEquipament_2 rdf:type owl:NamedIndividual ,
+                              :NetworkEquipament ;
+                     :IP "IP_NetworkEquipament_2" ;
+                     :MACAddress "MACAddress_NetworkEquipament_2" ;
+                     foaf:name "NetworkEquipament2" .
+
+
+###  http://websemantica.ddns.net#NetworkEquipament_3
+:NetworkEquipament_3 rdf:type owl:NamedIndividual ,
+                              :NetworkEquipament ;
+                     :IP "IP_NetworkEquipament_3" ;
+                     :MACAddress "MACAddress_NetworkEquipament_3" ;
+                     foaf:name "NetworkEquipament3" .
+
+
+###  http://websemantica.ddns.net#NetworkEquipament_4
+:NetworkEquipament_4 rdf:type owl:NamedIndividual ,
+                              :NetworkEquipament ;
+                     :IP "IP_NetworkEquipament_4" ;
+                     :MACAddress "MACAddress_NetworkEquipament_4" ;
+                     foaf:name "NetworkEquipament4" .
+
+
+###  http://websemantica.ddns.net#NetworkEquipament_5
+:NetworkEquipament_5 rdf:type owl:NamedIndividual ,
+                              :NetworkEquipament ;
+                     :IP "IP_NetworkEquipament_5" ;
+                     :MACAddress "MACAddress_NetworkEquipament_5" ;
+                     foaf:name "NetworkEquipament5" .
+
+
+###  http://websemantica.ddns.net#NetworkEquipament_6
+:NetworkEquipament_6 rdf:type owl:NamedIndividual ,
+                              :NetworkEquipament ;
+                     :IP "IP_NetworkEquipament_6" ;
+                     :MACAddress "MACAddress_NetworkEquipament_6" ;
+                     foaf:name "NetworkEquipament6" .
+
+
+###  http://websemantica.ddns.net#NetworkEquipament_7
+:NetworkEquipament_7 rdf:type owl:NamedIndividual ,
+                              :NetworkEquipament ;
+                     :IP "IP_NetworkEquipament_7" ;
+                     :MACAddress "MACAddress_NetworkEquipament_7" ;
+                     foaf:name "NetworkEquipament7" .
+
+
+###  http://websemantica.ddns.net#NetworkEquipament_8
+:NetworkEquipament_8 rdf:type owl:NamedIndividual ,
+                              :NetworkEquipament ;
+                     :IP "IP_NetworkEquipament_8" ;
+                     :MACAddress "MACAddress_NetworkEquipament_8" ;
+                     foaf:name "NetworkEquipament8" .
+
+
+###  http://websemantica.ddns.net#NetworkEquipament_9
+:NetworkEquipament_9 rdf:type owl:NamedIndividual ,
+                              :NetworkEquipament ;
+                     :IP "IP_NetworkEquipament_9" ;
+                     :MACAddress "MACAddress_NetworkEquipament_9" ;
+                     foaf:name "NetworkEquipament9" .
+
+
+###  http://websemantica.ddns.net#OwnershipAcquisition
+:OwnershipAcquisition rdf:type owl:NamedIndividual ,
+                               gufo:Kind .
+
+
+###  http://websemantica.ddns.net#OwnershipAcquisition_1
+:OwnershipAcquisition_1 rdf:type owl:NamedIndividual ,
+                                 :OwnershipAcquisition ;
+                        :responsibleMediatesOwnershipAcquisition :Responsible_1 ;
+                        :tutoredMediatesOwnershipAcquisition :Tutored_1 ;
+                        foaf:name "OwnershipAcquisition1" .
+
+
+###  http://websemantica.ddns.net#OwnershipAcquisition_10
+:OwnershipAcquisition_10 rdf:type owl:NamedIndividual ,
+                                  :OwnershipAcquisition ;
+                         :responsibleMediatesOwnershipAcquisition :Responsible_10 ;
+                         :tutoredMediatesOwnershipAcquisition :Tutored_10 ;
+                         foaf:name "OwnershipAcquisition10" .
+
+
+###  http://websemantica.ddns.net#OwnershipAcquisition_2
+:OwnershipAcquisition_2 rdf:type owl:NamedIndividual ,
+                                 :OwnershipAcquisition ;
+                        foaf:name "OwnershipAcquisition2" .
+
+
+###  http://websemantica.ddns.net#OwnershipAcquisition_3
+:OwnershipAcquisition_3 rdf:type owl:NamedIndividual ,
+                                 :OwnershipAcquisition ;
+                        :responsibleMediatesOwnershipAcquisition :Responsible_6 ;
+                        :tutoredMediatesOwnershipAcquisition :Tutored_6 ;
+                        foaf:name "OwnershipAcquisition3" .
+
+
+###  http://websemantica.ddns.net#OwnershipAcquisition_4
+:OwnershipAcquisition_4 rdf:type owl:NamedIndividual ,
+                                 :OwnershipAcquisition ;
+                        :responsibleMediatesOwnershipAcquisition :Responsible_7 ;
+                        :tutoredMediatesOwnershipAcquisition :Tutored_7 ;
+                        foaf:name "OwnershipAcquisition4" .
+
+
+###  http://websemantica.ddns.net#OwnershipAcquisition_5
+:OwnershipAcquisition_5 rdf:type owl:NamedIndividual ,
+                                 :OwnershipAcquisition ;
+                        :responsibleMediatesOwnershipAcquisition :Responsible_5 ;
+                        :tutoredMediatesOwnershipAcquisition :Tutored_5 ;
+                        foaf:name "OwnershipAcquisition5" .
+
+
+###  http://websemantica.ddns.net#OwnershipAcquisition_6
+:OwnershipAcquisition_6 rdf:type owl:NamedIndividual ,
+                                 :OwnershipAcquisition ;
+                        :responsibleMediatesOwnershipAcquisition :Responsible_4 ;
+                        :tutoredMediatesOwnershipAcquisition :Tutored_4 ;
+                        foaf:name "OwnershipAcquisition6" .
+
+
+###  http://websemantica.ddns.net#OwnershipAcquisition_7
+:OwnershipAcquisition_7 rdf:type owl:NamedIndividual ,
+                                 :OwnershipAcquisition ;
+                        :responsibleMediatesOwnershipAcquisition :Responsible_3 ;
+                        :tutoredMediatesOwnershipAcquisition :Tutored_3 ;
+                        foaf:name "OwnershipAcquisition7" .
+
+
+###  http://websemantica.ddns.net#OwnershipAcquisition_8
+:OwnershipAcquisition_8 rdf:type owl:NamedIndividual ,
+                                 :OwnershipAcquisition ;
+                        :responsibleMediatesOwnershipAcquisition :Responsible_8 ;
+                        :tutoredMediatesOwnershipAcquisition :Tutored_8 ;
+                        foaf:name "OwnershipAcquisition8" .
+
+
+###  http://websemantica.ddns.net#OwnershipAcquisition_9
+:OwnershipAcquisition_9 rdf:type owl:NamedIndividual ,
+                                 :OwnershipAcquisition ;
+                        :responsibleMediatesOwnershipAcquisition :Responsible_9 ;
+                        :tutoredMediatesOwnershipAcquisition :Tutored_9 ;
+                        foaf:name "OwnershipAcquisition9" .
+
+
+###  http://websemantica.ddns.net#Person
+:Person rdf:type owl:NamedIndividual ,
+                 gufo:Kind .
+
+
+###  http://websemantica.ddns.net#Person_1
+:Person_1 rdf:type owl:NamedIndividual ,
+                   :Person ;
+          :PersonName "PersonName_Person_1" ;
+          foaf:name "Person1" .
+
+
+###  http://websemantica.ddns.net#Person_10
+:Person_10 rdf:type owl:NamedIndividual ,
+                    :Person ;
+           :PersonName "PersonName_Person_10" ;
+           foaf:name "Person10" .
+
+
+###  http://websemantica.ddns.net#Person_2
+:Person_2 rdf:type owl:NamedIndividual ,
+                   :Person ;
+          :PersonName "PersonName_Person_2" ;
+          foaf:name "Person2" .
+
+
+###  http://websemantica.ddns.net#Person_3
+:Person_3 rdf:type owl:NamedIndividual ,
+                   :Person ;
+          :PersonName "PersonName_Person_3" ;
+          foaf:name "Person3" .
+
+
+###  http://websemantica.ddns.net#Person_4
+:Person_4 rdf:type owl:NamedIndividual ,
+                   :Person ;
+          :PersonName "PersonName_Person_4" ;
+          foaf:name "Person4" .
+
+
+###  http://websemantica.ddns.net#Person_5
+:Person_5 rdf:type owl:NamedIndividual ,
+                   :Person ;
+          :PersonName "PersonName_Person_5" ;
+          foaf:name "Person5" .
+
+
+###  http://websemantica.ddns.net#Person_6
+:Person_6 rdf:type owl:NamedIndividual ,
+                   :Person ;
+          :PersonName "PersonName_Person_6" ;
+          foaf:name "Person6" .
+
+
+###  http://websemantica.ddns.net#Person_7
+:Person_7 rdf:type owl:NamedIndividual ,
+                   :Person ;
+          :PersonName "PersonName_Person_7" ;
+          foaf:name "Person7" .
+
+
+###  http://websemantica.ddns.net#Person_8
+:Person_8 rdf:type owl:NamedIndividual ,
+                   :Person ;
+          :PersonName "PersonName_Person_8" ;
+          foaf:name "Person8" .
+
+
+###  http://websemantica.ddns.net#Person_9
+:Person_9 rdf:type owl:NamedIndividual ,
+                   :Person ;
+          :PersonName "PersonName_Person_9" ;
+          foaf:name "Person9" .
+
+
+###  http://websemantica.ddns.net#Responsible
+:Responsible rdf:type owl:NamedIndividual ,
+                      gufo:Role .
+
+
+###  http://websemantica.ddns.net#Responsible_1
+:Responsible_1 rdf:type owl:NamedIndividual ,
+                        :Responsible ;
+               :tutoredBy :Tutored_2 ,
+                          :Tutored_6 ,
+                          :Tutored_9 ;
+               foaf:name "Responsible1" .
+
+
+###  http://websemantica.ddns.net#Responsible_10
+:Responsible_10 rdf:type owl:NamedIndividual ,
+                         :Responsible ;
+                :tutoredBy :Tutored_2 ,
+                           :Tutored_5 ;
+                foaf:name "Responsible10" .
+
+
+###  http://websemantica.ddns.net#Responsible_2
+:Responsible_2 rdf:type owl:NamedIndividual ,
+                        :Responsible ;
+               :tutoredBy :Tutored_7 ,
+                          :Tutored_9 ;
+               foaf:name "Responsible2" .
+
+
+###  http://websemantica.ddns.net#Responsible_3
+:Responsible_3 rdf:type owl:NamedIndividual ,
+                        :Responsible ;
+               :tutoredBy :Tutored_4 ,
+                          :Tutored_6 ,
+                          :Tutored_7 ;
+               foaf:name "Responsible3" .
+
+
+###  http://websemantica.ddns.net#Responsible_4
+:Responsible_4 rdf:type owl:NamedIndividual ,
+                        :Responsible ;
+               :tutoredBy :Tutored_3 ,
+                          :Tutored_5 ,
+                          :Tutored_8 ;
+               foaf:name "Responsible4" .
+
+
+###  http://websemantica.ddns.net#Responsible_5
+:Responsible_5 rdf:type owl:NamedIndividual ,
+                        :Responsible ;
+               :tutoredBy :Tutored_8 ;
+               foaf:name "Responsible5" .
+
+
+###  http://websemantica.ddns.net#Responsible_6
+:Responsible_6 rdf:type owl:NamedIndividual ,
+                        :Responsible ;
+               foaf:name "Responsible6" .
+
+
+###  http://websemantica.ddns.net#Responsible_7
+:Responsible_7 rdf:type owl:NamedIndividual ,
+                        :Responsible ;
+               :tutoredBy :Tutored_2 ,
+                          :Tutored_4 ,
+                          :Tutored_8 ;
+               foaf:name "Responsible7" .
+
+
+###  http://websemantica.ddns.net#Responsible_8
+:Responsible_8 rdf:type owl:NamedIndividual ,
+                        :Responsible ;
+               :tutoredBy :Tutored_6 ;
+               foaf:name "Responsible8" .
+
+
+###  http://websemantica.ddns.net#Responsible_9
+:Responsible_9 rdf:type owl:NamedIndividual ,
+                        :Responsible ;
+               :tutoredBy :Tutored_10 ;
+               foaf:name "Responsible9" .
+
+
+###  http://websemantica.ddns.net#Software
+:Software rdf:type owl:NamedIndividual ,
+                   gufo:Kind .
+
+
+###  http://websemantica.ddns.net#Software_1
+:Software_1 rdf:type owl:NamedIndividual ,
+                     :Software ;
+            :Nome "Nome_Software_1" ;
+            :Versao "Versao_Software_1" ;
+            foaf:name "Software1" .
+
+
+###  http://websemantica.ddns.net#Software_10
+:Software_10 rdf:type owl:NamedIndividual ,
+                      :Software ;
+             :Nome "Nome_Software_10" ;
+             :Versao "Versao_Software_10" ;
+             foaf:name "Software10" .
+
+
+###  http://websemantica.ddns.net#Software_2
+:Software_2 rdf:type owl:NamedIndividual ,
+                     :Software ;
+            :Nome "Nome_Software_2" ;
+            :Versao "Versao_Software_2" ;
+            foaf:name "Software2" .
+
+
+###  http://websemantica.ddns.net#Software_3
+:Software_3 rdf:type owl:NamedIndividual ,
+                     :Software ;
+            :Nome "Nome_Software_3" ;
+            :Versao "Versao_Software_3" ;
+            foaf:name "Software3" .
+
+
+###  http://websemantica.ddns.net#Software_4
+:Software_4 rdf:type owl:NamedIndividual ,
+                     :Software ;
+            :Nome "Nome_Software_4" ;
+            :Versao "Versao_Software_4" ;
+            foaf:name "Software4" .
+
+
+###  http://websemantica.ddns.net#Software_5
+:Software_5 rdf:type owl:NamedIndividual ,
+                     :Software ;
+            :Nome "Nome_Software_5" ;
+            :Versao "Versao_Software_5" ;
+            foaf:name "Software5" .
+
+
+###  http://websemantica.ddns.net#Software_6
+:Software_6 rdf:type owl:NamedIndividual ,
+                     :Software ;
+            :Nome "Nome_Software_6" ;
+            :Versao "Versao_Software_6" ;
+            foaf:name "Software6" .
+
+
+###  http://websemantica.ddns.net#Software_7
+:Software_7 rdf:type owl:NamedIndividual ,
+                     :Software ;
+            :Nome "Nome_Software_7" ;
+            :Versao "Versao_Software_7" ;
+            foaf:name "Software7" .
+
+
+###  http://websemantica.ddns.net#Software_8
+:Software_8 rdf:type owl:NamedIndividual ,
+                     :Software ;
+            :Nome "Nome_Software_8" ;
+            :Versao "Versao_Software_8" ;
+            foaf:name "Software8" .
+
+
+###  http://websemantica.ddns.net#Software_9
+:Software_9 rdf:type owl:NamedIndividual ,
+                     :Software ;
+            :Nome "Nome_Software_9" ;
+            :Versao "Versao_Software_9" ;
+            foaf:name "Software9" .
+
+
+###  http://websemantica.ddns.net#Target
+:Target rdf:type owl:NamedIndividual ,
+                 gufo:Role .
+
+
+###  http://websemantica.ddns.net#Target_1
+:Target_1 rdf:type owl:NamedIndividual ,
+                   :Target ;
+          :targetFromAttack :Attack_1 ;
+          foaf:name "Target1" .
+
+
+###  http://websemantica.ddns.net#Target_10
+:Target_10 rdf:type owl:NamedIndividual ,
+                    :Target ;
+           :targetFromAttack :Attack_10 ;
+           foaf:name "Target10" .
+
+
+###  http://websemantica.ddns.net#Target_2
+:Target_2 rdf:type owl:NamedIndividual ,
+                   :Target ;
+          :targetFromAttack :Attack_2 ;
+          foaf:name "Target2" .
+
+
+###  http://websemantica.ddns.net#Target_3
+:Target_3 rdf:type owl:NamedIndividual ,
+                   :Target ;
+          :targetFromAttack :Attack_3 ;
+          foaf:name "Target3" .
+
+
+###  http://websemantica.ddns.net#Target_4
+:Target_4 rdf:type owl:NamedIndividual ,
+                   :Target ;
+          :targetFromAttack :Attack_4 ;
+          foaf:name "Target4" .
+
+
+###  http://websemantica.ddns.net#Target_5
+:Target_5 rdf:type owl:NamedIndividual ,
+                   :Target ;
+          :targetFromAttack :Attack_5 ;
+          foaf:name "Target5" .
+
+
+###  http://websemantica.ddns.net#Target_6
+:Target_6 rdf:type owl:NamedIndividual ,
+                   :Target ;
+          :targetFromAttack :Attack_6 ;
+          foaf:name "Target6" .
+
+
+###  http://websemantica.ddns.net#Target_7
+:Target_7 rdf:type owl:NamedIndividual ,
+                   :Target ;
+          :targetFromAttack :Attack_7 ;
+          foaf:name "Target7" .
+
+
+###  http://websemantica.ddns.net#Target_8
+:Target_8 rdf:type owl:NamedIndividual ,
+                   :Target ;
+          :targetFromAttack :Attack_8 ;
+          foaf:name "Target8" .
+
+
+###  http://websemantica.ddns.net#Target_9
+:Target_9 rdf:type owl:NamedIndividual ,
+                   :Target ;
+          :targetFromAttack :Attack_9 ;
+          foaf:name "Target9" .
+
+
+###  http://websemantica.ddns.net#TipoDeAtaque
+:TipoDeAtaque rdf:type owl:NamedIndividual ,
+                       gufo:Kind .
+
+
+###  http://websemantica.ddns.net#TipoDeAtaque_1
+:TipoDeAtaque_1 rdf:type owl:NamedIndividual ,
+                         :TipoDeAtaque ;
+                :typeOfAttack :Attack_10 ,
+                              :Attack_5 ,
+                              :Attack_7 ;
+                :attackType "Brute-force_attack" ;
+                rdfs:seeAlso dbr:Brute-force_attack ;
+                foaf:name "TipoDeAtaque1" .
+
+
+###  http://websemantica.ddns.net#TipoDeAtaque_2
+:TipoDeAtaque_2 rdf:type owl:NamedIndividual ,
+                         :TipoDeAtaque ;
+                :typeOfAttack :Attack_4 ,
+                              :Attack_8 ;
+                :attackType "Privilege_escalation" ;
+                rdfs:seeAlso dbr:Privilege_escalation ;
+                foaf:name "TipoDeAtaque2" .
+
+
+###  http://websemantica.ddns.net#TipoDeAtaque_3
+:TipoDeAtaque_3 rdf:type owl:NamedIndividual ,
+                         :TipoDeAtaque ;
+                :attackType "Arbitrary_code_execution" ;
+                rdfs:seeAlso dbr:Arbitrary_code_execution ;
+                foaf:name "TipoDeAtaque3" .
+
+
+###  http://websemantica.ddns.net#TipoDeAtaque_4
+:TipoDeAtaque_4 rdf:type owl:NamedIndividual ,
+                         :TipoDeAtaque ;
+                :typeOfAttack :Attack_9 ;
+                :attackType "Phishing" ;
+                rdfs:seeAlso dbr:Phishing ;
+                foaf:name "TipoDeAtaque4" .
+
+
+###  http://websemantica.ddns.net#TipoDeAtaque_5
+:TipoDeAtaque_5 rdf:type owl:NamedIndividual ,
+                         :TipoDeAtaque ;
+                :attackType "Cross-site_scripting" ;
+                rdfs:seeAlso dbr:Cross-site_scripting ;
+                foaf:name "TipoDeAtaque5" .
+
+
+###  http://websemantica.ddns.net#TipoDeAtaque_6
+:TipoDeAtaque_6 rdf:type owl:NamedIndividual ,
+                         :TipoDeAtaque ;
+                :attackType "Scanning" ;
+                rdfs:seeAlso dbr:Scanning ;
+                foaf:name "TipoDeAtaque6" .
+
+
+###  http://websemantica.ddns.net#TipoDeAtaque_7
+:TipoDeAtaque_7 rdf:type owl:NamedIndividual ,
+                         :TipoDeAtaque ;
+                :typeOfAttack :Attack_6 ;
+                :attackType "SQL_injection" ;
+                rdfs:seeAlso dbr:SQL_injection ;
+                foaf:name "TipoDeAtaque7" .
+
+
+###  http://websemantica.ddns.net#TipoDeAtaque_8
+:TipoDeAtaque_8 rdf:type owl:NamedIndividual ,
+                         :TipoDeAtaque ;
+                :typeOfAttack :Attack_3 ;
+                :attackType "Command_injection" ;
+                rdfs:seeAlso dbr:Command_injection ;
+                foaf:name "TipoDeAtaque8" .
+
+
+###  http://websemantica.ddns.net#TipoDeAtaque_9
+:TipoDeAtaque_9 rdf:type owl:NamedIndividual ,
+                         :TipoDeAtaque ;
+                :typeOfAttack :Attack_1 ,
+                              :Attack_2 ;
+                :attackType "UDP_flood_attack" ;
+                rdfs:seeAlso dbr:UDP_flood_attack ;
+                foaf:name "TipoDeAtaque9" .
+
+
+###  http://websemantica.ddns.net#Tutored
+:Tutored rdf:type owl:NamedIndividual ,
+                  gufo:RoleMixin .
+
+
+###  http://websemantica.ddns.net#Tutored_1
+:Tutored_1 rdf:type owl:NamedIndividual ,
+                    :Tutored ;
+           :hasOwner :Responsible_10 ,
+                     :Responsible_4 ,
+                     :Responsible_7 ;
+           foaf:name "Tutored1" .
+
+
+###  http://websemantica.ddns.net#Tutored_10
+:Tutored_10 rdf:type owl:NamedIndividual ,
+                     :Tutored ;
+            :hasOwner :Responsible_3 ,
+                      :Responsible_8 ;
+            foaf:name "Tutored10" .
+
+
+###  http://websemantica.ddns.net#Tutored_2
+:Tutored_2 rdf:type owl:NamedIndividual ,
+                    :Tutored ;
+           :hasOwner :Responsible_7 ;
+           foaf:name "Tutored2" .
+
+
+###  http://websemantica.ddns.net#Tutored_3
+:Tutored_3 rdf:type owl:NamedIndividual ,
+                    :Tutored ;
+           :hasOwner :Responsible_9 ;
+           foaf:name "Tutored3" .
+
+
+###  http://websemantica.ddns.net#Tutored_4
+:Tutored_4 rdf:type owl:NamedIndividual ,
+                    :Tutored ;
+           :hasOwner :Responsible_10 ;
+           foaf:name "Tutored4" .
+
+
+###  http://websemantica.ddns.net#Tutored_5
+:Tutored_5 rdf:type owl:NamedIndividual ,
+                    :Tutored ;
+           :hasOwner :Responsible_1 ,
+                     :Responsible_2 ,
+                     :Responsible_4 ,
+                     :Responsible_9 ;
+           foaf:name "Tutored5" .
+
+
+###  http://websemantica.ddns.net#Tutored_6
+:Tutored_6 rdf:type owl:NamedIndividual ,
+                    :Tutored ;
+           :hasOwner :Responsible_6 ;
+           foaf:name "Tutored6" .
+
+
+###  http://websemantica.ddns.net#Tutored_7
+:Tutored_7 rdf:type owl:NamedIndividual ,
+                    :Tutored ;
+           :hasOwner :Responsible_2 ,
+                     :Responsible_3 ;
+           foaf:name "Tutored7" .
+
+
+###  http://websemantica.ddns.net#Tutored_8
+:Tutored_8 rdf:type owl:NamedIndividual ,
+                    :Tutored ;
+           :hasOwner :Responsible_9 ;
+           foaf:name "Tutored8" .
+
+
+###  http://websemantica.ddns.net#Tutored_9
+:Tutored_9 rdf:type owl:NamedIndividual ,
+                    :Tutored ;
+           :hasOwner :Responsible_6 ;
+           foaf:name "Tutored9" .
+
+
+###  http://websemantica.ddns.net#UnauthorizedResult
+:UnauthorizedResult rdf:type owl:NamedIndividual ,
+                             gufo:SituationType .
+
+
+###  http://websemantica.ddns.net#UnauthorizedResult_1
+:UnauthorizedResult_1 rdf:type owl:NamedIndividual ,
+                               :UnauthorizedResult ;
+                      :resultInAsset :InformationAsset_7 ;
+                      :resultedBy :Attack_5 ;
+                      :URName "Denial of Service" ;
+                      foaf:name "UnauthorizedResult1" .
+
+
+###  http://websemantica.ddns.net#UnauthorizedResult_10
+:UnauthorizedResult_10 rdf:type owl:NamedIndividual ,
+                                :UnauthorizedResult ;
+                       :resultInAsset :InformationAsset_8 ;
+                       :resultedBy :Attack_2 ;
+                       :URName "Increased Access" ;
+                       foaf:name "UnauthorizedResult10" .
+
+
+###  http://websemantica.ddns.net#UnauthorizedResult_2
+:UnauthorizedResult_2 rdf:type owl:NamedIndividual ,
+                               :UnauthorizedResult ;
+                      :resultInAsset :InformationAsset_2 ;
+                      :resultedBy :Attack_10 ;
+                      :URName "Corruption of Information" ;
+                      foaf:name "UnauthorizedResult2" .
+
+
+###  http://websemantica.ddns.net#UnauthorizedResult_3
+:UnauthorizedResult_3 rdf:type owl:NamedIndividual ,
+                               :UnauthorizedResult ;
+                      :resultInAsset :InformationAsset_3 ;
+                      :resultedBy :Attack_3 ;
+                      :URName "Denial of Service" ;
+                      foaf:name "UnauthorizedResult3" .
+
+
+###  http://websemantica.ddns.net#UnauthorizedResult_4
+:UnauthorizedResult_4 rdf:type owl:NamedIndividual ,
+                               :UnauthorizedResult ;
+                      :resultInAsset :InformationAsset_4 ;
+                      :resultedBy :Attack_4 ;
+                      :URName "Theft of Resources" ;
+                      foaf:name "UnauthorizedResult4" .
+
+
+###  http://websemantica.ddns.net#UnauthorizedResult_5
+:UnauthorizedResult_5 rdf:type owl:NamedIndividual ,
+                               :UnauthorizedResult ;
+                      :resultInAsset :InformationAsset_5 ;
+                      :resultedBy :Attack_5 ;
+                      :URName "Increased Access" ;
+                      foaf:name "UnauthorizedResult5" .
+
+
+###  http://websemantica.ddns.net#UnauthorizedResult_6
+:UnauthorizedResult_6 rdf:type owl:NamedIndividual ,
+                               :UnauthorizedResult ;
+                      :resultInAsset :InformationAsset_6 ;
+                      :resultedBy :Attack_6 ;
+                      :URName "Corruption of Information" ;
+                      foaf:name "UnauthorizedResult6" .
+
+
+###  http://websemantica.ddns.net#UnauthorizedResult_7
+:UnauthorizedResult_7 rdf:type owl:NamedIndividual ,
+                               :UnauthorizedResult ;
+                      :resultInAsset :InformationAsset_7 ;
+                      :resultedBy :Attack_7 ;
+                      :URName "Increased Access" ;
+                      foaf:name "UnauthorizedResult7" .
+
+
+###  http://websemantica.ddns.net#UnauthorizedResult_8
+:UnauthorizedResult_8 rdf:type owl:NamedIndividual ,
+                               :UnauthorizedResult ;
+                      :resultInAsset :InformationAsset_8 ;
+                      :resultedBy :Attack_8 ;
+                      :URName "Theft of Resources" ;
+                      foaf:name "UnauthorizedResult8" .
+
+
+###  http://websemantica.ddns.net#UnauthorizedResult_9
+:UnauthorizedResult_9 rdf:type owl:NamedIndividual ,
+                               :UnauthorizedResult ;
+                      :resultInAsset :InformationAsset_9 ;
+                      :resultedBy :Attack_9 ;
+                      :URName "Theft of Resources" ;
+                      foaf:name "UnauthorizedResult9" .
+
+
+###  http://websemantica.ddns.net#Victim
+:Victim rdf:type owl:NamedIndividual ,
+                 gufo:Role .
+
+
+###  http://websemantica.ddns.net#Victim_1
+:Victim_1 rdf:type owl:NamedIndividual ,
+                   :Victim ;
+          :victimFromIncident :Incident_5 ,
+                              :Incident_7 ;
+          foaf:name "Victim1" .
+
+
+###  http://websemantica.ddns.net#Victim_10
+:Victim_10 rdf:type owl:NamedIndividual ,
+                    :Victim ;
+           :victimHasDamage :Damage_3 ;
+           foaf:name "Victim10" .
+
+
+###  http://websemantica.ddns.net#Victim_2
+:Victim_2 rdf:type owl:NamedIndividual ,
+                   :Victim ;
+          :victimHasDamage :Damage_1 ,
+                           :Damage_4 ,
+                           :Damage_9 ;
+          foaf:name "Victim2" .
+
+
+###  http://websemantica.ddns.net#Victim_3
+:Victim_3 rdf:type owl:NamedIndividual ,
+                   :Victim ;
+          :victimFromIncident :Incident_1 ,
+                              :Incident_3 ,
+                              :Incident_5 ,
+                              :Incident_6 ;
+          foaf:name "Victim3" .
+
+
+###  http://websemantica.ddns.net#Victim_4
+:Victim_4 rdf:type owl:NamedIndividual ,
+                   :Victim ;
+          :victimFromIncident :Incident_1 ;
+          :victimHasDamage :Damage_3 ,
+                           :Damage_5 ,
+                           :Damage_7 ;
+          foaf:name "Victim4" .
+
+
+###  http://websemantica.ddns.net#Victim_5
+:Victim_5 rdf:type owl:NamedIndividual ,
+                   :Victim ;
+          :victimFromIncident :Incident_2 ,
+                              :Incident_5 ,
+                              :Incident_6 ;
+          :victimHasDamage :Damage_4 ,
+                           :Damage_7 ;
+          foaf:name "Victim5" .
+
+
+###  http://websemantica.ddns.net#Victim_6
+:Victim_6 rdf:type owl:NamedIndividual ,
+                   :Victim ;
+          :victimFromIncident :Incident_3 ,
+                              :Incident_6 ;
+          :victimHasDamage :Damage_10 ,
+                           :Damage_2 ,
+                           :Damage_3 ,
+                           :Damage_7 ;
+          foaf:name "Victim6" .
+
+
+###  http://websemantica.ddns.net#Victim_7
+:Victim_7 rdf:type owl:NamedIndividual ,
+                   :Victim ;
+          :victimHasDamage :Damage_5 ,
+                           :Damage_9 ;
+          foaf:name "Victim7" .
+
+
+###  http://websemantica.ddns.net#Victim_8
+:Victim_8 rdf:type owl:NamedIndividual ,
+                   :Victim ;
+          :victimHasDamage :Damage_10 ;
+          foaf:name "Victim8" .
+
+
+###  http://websemantica.ddns.net#Victim_9
+:Victim_9 rdf:type owl:NamedIndividual ,
+                   :Victim ;
+          :victimHasDamage :Damage_10 ,
+                           :Damage_4 ,
+                           :Damage_7 ;
+          foaf:name "Victim9" .
+
+
+###  http://websemantica.ddns.net#Vulnerable
+:Vulnerable rdf:type owl:NamedIndividual ,
+                     gufo:SituationType .
+
+
+###  http://websemantica.ddns.net#Vulnerable_1
+:Vulnerable_1 rdf:type owl:NamedIndividual ,
+                       :Vulnerable ;
+              :attackContributedToTriggerVulnerable :Attack_2 ,
+                                                    :Attack_4 ,
+                                                    :Attack_8 ;
+              :vulnerabilityFromAsset :InformationAsset_4 ;
+              :vulnerabilityName "Misuse Configuration" ;
+              foaf:name "Vulnerable1" .
+
+
+###  http://websemantica.ddns.net#Vulnerable_10
+:Vulnerable_10 rdf:type owl:NamedIndividual ,
+                        :Vulnerable ;
+               :vulnerabilityFromAsset :InformationAsset_1 ,
+                                       :InformationAsset_4 ;
+               :vulnerabilityName "Improper Access Control" ;
+               foaf:name "Vulnerable10" .
+
+
+###  http://websemantica.ddns.net#Vulnerable_2
+:Vulnerable_2 rdf:type owl:NamedIndividual ,
+                       :Vulnerable ;
+              :vulnerabilityFromAsset :InformationAsset_3 ;
+              :vulnerabilityName "Improper Authentication" ;
+              foaf:name "Vulnerable2" .
+
+
+###  http://websemantica.ddns.net#Vulnerable_3
+:Vulnerable_3 rdf:type owl:NamedIndividual ,
+                       :Vulnerable ;
+              :attackContributedToTriggerVulnerable :Attack_10 ,
+                                                    :Attack_7 ,
+                                                    :Attack_8 ;
+              :vulnerabilityFromAsset :InformationAsset_1 ,
+                                      :InformationAsset_7 ;
+              :vulnerabilityName "Improper Authentication" ;
+              foaf:name "Vulnerable3" .
+
+
+###  http://websemantica.ddns.net#Vulnerable_4
+:Vulnerable_4 rdf:type owl:NamedIndividual ,
+                       :Vulnerable ;
+              :attackContributedToTriggerVulnerable :Attack_6 ;
+              :vulnerabilityFromAsset :InformationAsset_1 ,
+                                      :InformationAsset_8 ;
+              :vulnerabilityName "Protection Mechanism Failure" ;
+              foaf:name "Vulnerable4" .
+
+
+###  http://websemantica.ddns.net#Vulnerable_5
+:Vulnerable_5 rdf:type owl:NamedIndividual ,
+                       :Vulnerable ;
+              :attackContributedToTriggerVulnerable :Attack_1 ;
+              :vulnerabilityName "Protection Mechanism Failure" ;
+              foaf:name "Vulnerable5" .
+
+
+###  http://websemantica.ddns.net#Vulnerable_6
+:Vulnerable_6 rdf:type owl:NamedIndividual ,
+                       :Vulnerable ;
+              :attackContributedToTriggerVulnerable :Attack_5 ,
+                                                    :Attack_7 ,
+                                                    :Attack_8 ,
+                                                    :Attack_9 ;
+              :vulnerabilityName "Insufficiently Protected Credentials" ;
+              foaf:name "Vulnerable6" .
+
+
+###  http://websemantica.ddns.net#Vulnerable_7
+:Vulnerable_7 rdf:type owl:NamedIndividual ,
+                       :Vulnerable ;
+              :attackContributedToTriggerVulnerable :Attack_3 ;
+              :vulnerabilityFromAsset :InformationAsset_9 ;
+              :vulnerabilityName "Improper Authentication" ;
+              foaf:name "Vulnerable7" .
+
+
+###  http://websemantica.ddns.net#Vulnerable_8
+:Vulnerable_8 rdf:type owl:NamedIndividual ,
+                       :Vulnerable ;
+              :attackContributedToTriggerVulnerable :Attack_2 ,
+                                                    :Attack_6 ,
+                                                    :Attack_7 ;
+              :vulnerabilityFromAsset :InformationAsset_2 ,
+                                      :InformationAsset_4 ,
+                                      :InformationAsset_5 ,
+                                      :InformationAsset_6 ,
+                                      :InformationAsset_9 ;
+              :vulnerabilityName "Improper Access Control" ;
+              foaf:name "Vulnerable8" .
+
+
+###  http://websemantica.ddns.net#Vulnerable_9
+:Vulnerable_9 rdf:type owl:NamedIndividual ,
+                       :Vulnerable ;
+              :attackContributedToTriggerVulnerable :Attack_2 ,
+                                                    :Attack_7 ;
+              :vulnerabilityFromAsset :InformationAsset_3 ,
+                                      :InformationAsset_5 ,
+                                      :InformationAsset_6 ,
+                                      :InformationAsset_8 ,
+                                      :InformationAsset_9 ;
+              :vulnerabilityName "Misuse Configuration" ;
+              foaf:name "Vulnerable9" .
+
+
+###  http://websemantica.ddns.net#hasOwner
+:hasOwner rdf:type owl:NamedIndividual ,
+                   gufo:MaterialRelationshipType .
+
+
+###  http://websemantica.ddns.net#tutoredBy
+:tutoredBy rdf:type owl:NamedIndividual ,
+                    gufo:MaterialRelationshipType .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:Attack rdfs:label "Attack"@en .
+
+
+:Attacker rdfs:label "Attacker"@en .
+
+
+:Computer rdfs:label "Computer"@en .
+
+
+:Damage rdfs:label "Damage"@en .
+
+
+:Incident rdfs:label "Incident"@en .
+
+
+:InformationAsset rdfs:label "Information Asset"@en .
+
+
+:LegalPerson rdfs:label "Legal Person"@en .
+
+
+:Malicious rdfs:label "Malicious"@en .
+
+
+:NaturalPerson rdfs:label "Natural Person"@en .
+
+
+:NetworkEquipament rdfs:label "Network Equipament"@en .
+
+
+:O5xXI0mDAACARCT rdfs:label ""@en .
+
+
+:OwnershipAcquisition rdfs:label "Ownership Acquisition"@en .
+
+
+:Person rdfs:label "Person"@en .
+
+
+:Responsible rdfs:label "Responsible"@en .
+
+
+:Software rdfs:label "Software"@en .
+
+
+:Target rdfs:label "Target"@en .
+
+
+:TipoDeAtaque rdfs:label "Tipo de Ataque"@en .
+
+
+:Tutored rdfs:label "Tutored"@en .
+
+
+:UnauthorizedResult rdfs:label "Unauthorized Result"@en .
+
+
+:Victim rdfs:label "Victim"@en .
+
+
+:Vulnerable rdfs:label "Vulnerable"@en .
+
+
+:chWUI0mDAACAQsg rdfs:label ""@en .
+
+
+:hasOwner rdfs:label "has owner"@en .
+
+
+:tutoredBy rdfs:label "tutoredBy"@en .
+
+
+<http://websemantica.ddns.net#0atbI0mDAACARAP> rdfs:label ""@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
